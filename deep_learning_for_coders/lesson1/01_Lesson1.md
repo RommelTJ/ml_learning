@@ -152,6 +152,23 @@ Video uses "fastai2" because they're recording on a pre-release version.
 
 ## The "doc" function and fastai framework documentation
 
+Example: `doc(ImageDataLoaders.from_name_func)`
+
+* The doc function takes you to the documentation, which is written in Jupyter notebooks.
+* The doc function also takes you to tutorials.
+
+FastAI has predetermined access to some datasets, such as this `URLs.PETS` dataset.  
+https://docs.fast.ai/data.external#URLs  
+
+1. Untar_data tells us the path where the images are decompressed to.
+2. `label_func`, Anything where the filename is uppercase is a cat.
+3. Architecture used is `resnet34`. Good for computer vision.
+4. `metrics` is what we want to print out.
+5. `fine_tune` does the training.
+6. `valid_pct` grabs a percentage of the data to calculate the error rate. This is to make sure we don't overfit.
+
+The craft of deep learning is creating a model that has a proper fit. FastAI defaults to 20% as valid_pct.
+
 ## Image Segmentation
 
 ## Classifying a review's sentiment based on IMDB text reviews
