@@ -36,3 +36,9 @@ deep learning.
 
 In the 80's, it was mathematically proven that the neural networks could work, but were often
 too big and slow. We can now do this. **Deep** learning means **more layers**.
+
+## Approach for learning
+
+1. Play the whole game.
+2. Make the game worth playing.
+3. Work on the hard parts.
