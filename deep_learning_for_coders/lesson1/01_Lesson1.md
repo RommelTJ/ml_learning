@@ -134,6 +134,22 @@ Limitations to Machine Learning:
 
 ## Consider how a model interacts with its environment
 
+Models can result in a positive feedback loop: 
+
+1. A predictive policing model is created based on where arrests have been made in the past. In practice, this is not
+actually predicting crime, but rather predicting arrests, and is therefore reflecting biases in existing processes.
+2. Law enforcement officers might use that model to decide where to focus their police activity.
+3. These additional arrests would re-train future versions of the model.
+4. This results in a positive feedback loop where the more the model is used, the more biased the data becomes.
+
+
+What's going on with our code?
+1. First line is an import. 
+Normally we just import the functions we need, but in ML we use an asterisk to import everything.
+FastAI is designed to use in a REPL environment, so the asterisk is usually ok.
+Video uses "fastai2" because they're recording on a pre-release version.
+2. Typing the symbol + Shift+Enter will tell you where a symbol is imported from.
+
 ## The "doc" function and fastai framework documentation
 
 ## Image Segmentation
