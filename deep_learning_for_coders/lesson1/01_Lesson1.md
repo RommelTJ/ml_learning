@@ -72,3 +72,21 @@ Course v4 repo: https://github.com/fastai/fastbook/tree/master/clean
 * Only headings and code.
 
 Colab: https://course.fast.ai/start_colab
+
+## First practical example in Jupyter Notebook
+
+## Interpretation and Explanation of the Exercise
+
+## Stochastic Gradient Descent (SGD)
+
+## Consider how a model interacts with its environment
+
+## The "doc" function and fastai framework documentation
+
+## Image Segmentation
+
+## Classifying a review's sentiment based on IMDB text reviews
+
+## Predicting a salary based on tabular data from CSV
+
+## Summary
