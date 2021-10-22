@@ -83,6 +83,35 @@ Running on Colab since fastai is not supported on a Mac.
 
 ## Interpretation and Explanation of the Exercise
 
+Machine learning is a way to get computers to complete a specific task.
+
+Normally, we write code like this:  
+1. inputs -> program -> results.
+
+Instead, machine learning is like this:
+1. inputs + weights -> model -> results
+2. Basic idea: Model is something that creates output not just on inputs, but also on some set of weights
+3. Automatic means of testing the effectiveness of any current weight assignment in terms of actual performance and
+provide a mechanism for altering the weight assignment so as to maximize the performance. Then machine will "learn" 
+from its experience.
+
+So then: 
+1. inputs + weights -> model -> results -> performance
+2. Then update inputs and weights based on performance results.
+
+We are building a computer program not by programming its individual steps, but through inference; by training it to 
+learn to do the task.
+
+Machine Learning:
+```
+The training of programs developed by allowing a computer to learn from its experience, rather than through 
+manually coding the individual steps.
+```
+
+The model to be able to identify images is called a neural network. It's a very flexible function. A mathematical
+proof called the `universal approximation theorem` shows that this function can solve any problem to any level of
+accuracy, in theory.
+
 ## Stochastic Gradient Descent (SGD)
 
 ## Consider how a model interacts with its environment
