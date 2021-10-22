@@ -175,6 +175,8 @@ Example on Jupyter notebook.
 
 ## Classifying a review's sentiment based on IMDB text reviews
 
+Example on Jupyter notebook.
+
 ## Predicting a salary based on tabular data from CSV
 
 ## Summary
