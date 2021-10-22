@@ -114,6 +114,24 @@ accuracy, in theory.
 
 ## Stochastic Gradient Descent (SGD)
 
+Neural networks being so flexible means that you can focus your effort on the process of finding good weight 
+assignments. This is what we mean by "training" them.
+
+The general way to update weights from performance is called Stochastic Gradient Descent (SGD).
+
+Terminology: 
+* Architecture: The function that sits in the middle that takes inputs and weights to get results/predictions.
+* Parameters: The machine learning weights.
+* Predictions: Results calculated from independent variables, which is the data not including the labels.
+* Loss: The measure of performance.
+* Labels: Used with predictions to calculate loss. Also known as Targets or Dependent Variable.
+
+Limitations to Machine Learning:
+* A model cannot be created without data.
+* A model can only learn to operate on the patterns seen in the input data used to train it.
+* This learning approach only creates predictions, not recommended actions.
+* It's not enough to just have examples of input data. We need labels for that data too (which ones are dogs and which are cats).
+
 ## Consider how a model interacts with its environment
 
 ## The "doc" function and fastai framework documentation
