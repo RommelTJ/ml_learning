@@ -75,6 +75,12 @@ Colab: https://course.fast.ai/start_colab
 
 ## First practical example in Jupyter Notebook
 
+Running on Colab since fastai is not supported on a Mac.
+
+1. Grabbing a data set (Pets dataset)
+2. Trying to figure out which ones are cats and dogs.
+3. After a minute, it can do it with a minimal error rate.
+
 ## Interpretation and Explanation of the Exercise
 
 ## Stochastic Gradient Descent (SGD)
