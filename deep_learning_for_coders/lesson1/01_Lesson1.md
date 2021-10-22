@@ -62,3 +62,13 @@ Note that Colab doesn't automatically save your work.
 
 A thing where you can type Python code and shows you results.
 Colab Notes: https://course.fast.ai/start_colab 
+
+## Git Repositories
+
+Fastbook repo: https://github.com/fastai/fastbook
+* The full book with examples and images.
+
+Course v4 repo: https://github.com/fastai/fastbook/tree/master/clean
+* Only headings and code.
+
+Colab: https://course.fast.ai/start_colab
