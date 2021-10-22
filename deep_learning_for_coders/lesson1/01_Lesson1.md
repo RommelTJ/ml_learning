@@ -20,3 +20,6 @@ Book: Deep Learning for Coders with fastai and PyTorch: AI Applications without 
 * Robotics
 * Other applications
 
+## Neural networks: a brief history
+
+* Deep learning is based on neural network that started in 1943 with Warren McCulloch.
