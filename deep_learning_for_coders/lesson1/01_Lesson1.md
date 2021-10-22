@@ -23,3 +23,11 @@ Book: Deep Learning for Coders with fastai and PyTorch: AI Applications without 
 ## Neural networks: a brief history
 
 * Deep learning is based on neural network that started in 1943 with Warren McCulloch.
+
+## The first AI Winter
+
+People pointed out that AI models couldn't learn simple functions like XOR, even though the 
+limitations could be addressed.
+
+In 1986, Parallel Distributed Processing (PDP) was released that described an approach to 
+deep learning.
