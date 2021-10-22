@@ -7,3 +7,16 @@ Book: Deep Learning for Coders with fastai and PyTorch: AI Applications without 
 * Just high school math is sufficient.
 * We've seen record-breaking results with <50 items of data.
 * You can get what you need for state-of-the-art work for free.
+
+## Where is deep learning the best-known approach?
+
+* NLP
+* Computer Vision
+* Medicine
+* Biology
+* Image generation
+* Recommendation systems
+* Playing games
+* Robotics
+* Other applications
+
