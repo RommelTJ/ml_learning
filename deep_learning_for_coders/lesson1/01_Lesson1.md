@@ -171,6 +171,8 @@ The craft of deep learning is creating a model that has a proper fit. FastAI def
 
 ## Image Segmentation
 
+Example on Jupyter notebook.
+
 ## Classifying a review's sentiment based on IMDB text reviews
 
 ## Predicting a salary based on tabular data from CSV
