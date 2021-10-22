@@ -31,3 +31,8 @@ limitations could be addressed.
 
 In 1986, Parallel Distributed Processing (PDP) was released that described an approach to 
 deep learning.
+
+## The age of deep learning
+
+In the 80's, it was mathematically proven that the neural networks could work, but were often
+too big and slow. We can now do this. **Deep** learning means **more layers**.
