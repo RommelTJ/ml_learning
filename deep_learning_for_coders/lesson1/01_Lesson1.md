@@ -179,4 +179,6 @@ Example on Jupyter notebook.
 
 ## Predicting a salary based on tabular data from CSV
 
+Example on Jupyter notebook.
+
 ## Summary
