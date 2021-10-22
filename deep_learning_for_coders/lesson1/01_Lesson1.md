@@ -182,3 +182,5 @@ Example on Jupyter notebook.
 Example on Jupyter notebook.
 
 ## Summary
+
+Make sure you can run all examples and answer questionnaires.
