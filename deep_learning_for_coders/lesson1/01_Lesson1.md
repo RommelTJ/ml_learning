@@ -42,3 +42,23 @@ too big and slow. We can now do this. **Deep** learning means **more layers**.
 1. Play the whole game.
 2. Make the game worth playing.
 3. Work on the hard parts.
+
+## The Software: PyTorch, fastai, and Jupyter (and why it doesn't matter)
+
+* Python
+* PyTorch (used to use Tensorflow but now it's too cumbersome)
+* fastai
+
+* PyTorch is designed for flexibility and developer-friendliness, but not beginner friendliness.
+* fastai is the most popular higher-level API for PyTorch.
+
+### Getting a GPU Deep learning server
+
+You'll need an NVIDIA GPU (other GPUs are not supported by the main libraries).
+Remember to shut down your instance (except for Colab).
+Note that Colab doesn't automatically save your work.
+
+### Jupyter Notebook
+
+A thing where you can type Python code and shows you results.
+Colab Notes: https://course.fast.ai/start_colab 
