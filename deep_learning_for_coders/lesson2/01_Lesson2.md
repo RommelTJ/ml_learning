@@ -25,6 +25,16 @@ labels in your function.
 `resnet34` is an architecture that is very good at image recognition.
 
 ## Epoch, metrics, error rate and accuracy
+
+`metrics=error_rate`, where you list the functions that you want to be called with your validation data and printed
+out after each epoch.
+
+epoch: Every time you look at every single image in the data set once.
+
+Metric: A function that measures the quality of the model's predictions using the validation set, and will be printed
+at the end of each epoch. `error_rate` is a function provided by fastai which tells you which images are being 
+classified incorrectly. Another common metric is `accuracy`.
+
 ## Overfitting, training, validation and testing data set
 ## How to choose your training set
 ## Transfer learning
