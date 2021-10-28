@@ -1,6 +1,18 @@
 # Lesson 2
 
 ## Classification vs Regression
+
+Classification and regression have very specific meanings.
+
+Our `is_cat` classification function returns True or False. It's a categorization function used for a Classification 
+model.
+
+If you wanted to predict how old is a cat, or predict some kind of number, you call that Regression.
+
+In other words: 
+- Classification = Predicting from a discrete set of possibilities.
+- Regression = Predicts one or more numeric quantities, such as temperature or location.
+
 ## Validation Data Set
 ## Epoch, metrics, error rate and accuracy
 ## Overfitting, training, validation and testing data set
