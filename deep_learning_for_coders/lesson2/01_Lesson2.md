@@ -36,6 +36,13 @@ at the end of each epoch. `error_rate` is a function provided by fastai which te
 classified incorrectly. Another common metric is `accuracy`.
 
 ## Overfitting, training, validation and testing data set
+
+Overfitting is the single most important and challenging issue when training models.
+We don't want our model to get good results by cheating. It needs to be general at recognizing images.
+
+Splitting off our validation data means our model never sees it in training, and so is completely untainted by it, 
+right? Wrong. You can still cheat by fitting to the validation set. A test set, a third set of data, might be best.
+
 ## How to choose your training set
 ## Transfer learning
 ## Fine tuning
