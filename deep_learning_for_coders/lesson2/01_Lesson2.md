@@ -14,6 +14,16 @@ In other words:
 - Regression = Predicts one or more numeric quantities, such as temperature or location.
 
 ## Validation Data Set
+
+When you train a model, you must always have a training set and a validation set, and must measure the accuracy of your
+model on the validation set.
+
+If you train for too long with not enough data, you will see accuracy getting worse due to over-fitting.
+
+A learner is something that contains your data and your architecture to figure out which parameters best match the 
+labels in your function.  
+`resnet34` is an architecture that is very good at image recognition.
+
 ## Epoch, metrics, error rate and accuracy
 ## Overfitting, training, validation and testing data set
 ## How to choose your training set
