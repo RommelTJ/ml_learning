@@ -146,6 +146,15 @@ A graph shows a uni-variant relationship (independent vs dependent variable). Wh
 you end up with statistically significant results. For example, denser cities will have more transmissions for disease.
 
 ## Turn predictive model into something useful in production
+
+"Designing great data products" by Jeremy Howard.
+
+Use the Drivetrain approach: 
+1. Defined Objective: What outcome am I trying to achieve?
+2. Levers: What inputs can we control?
+3. Data: What data can we collect?
+4. Models: How the levers influence the objective.
+
 ## Practical exercise with Bing Image Search
 ## Bing Image Sign up
 ## Data Block API
