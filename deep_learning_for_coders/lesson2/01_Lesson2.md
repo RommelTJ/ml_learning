@@ -91,6 +91,9 @@ See https://youtu.be/BvHmRx14HQ8?t=1892
 inputs + parameters => architecture -> predictions + labels -> loss -> update function -> parameters (loop).
 
 ## End of Chapter 1 of the Book
+
+Chapter is over.
+
 ## Where to find pretrained models
 ## The state of deep learning
 ## Recommendation vs Prediction
