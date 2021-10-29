@@ -120,6 +120,24 @@ If you buy a book by one author on Amazon,
 * A librarian might recommend a similar book from a different author.
 
 ## Interpreting Models - P value
+
+"High temperature and High humidity reduce the transmission of COVID-19".
+* Article plotted the temperature on one axis, and R on the y axis, where a higher R means more spread.
+* A best-fit line showed that the higher the Temperature, the less the R value.
+* One way to check if it's random or not is to use a spreadsheet.
+* Then we picked a random value in a normal distribution.
+* Then we calculate the average and plot them to see if we get a similar distribution completely at random.
+* We do. 
+* To be more confident, you need to look at more cities/data. 100 cities is not enough.
+
+How might we decide if there's a relationship?
+* Pick a "null hypothesis" (No relationship).
+* Gather data of independent and dependent variables (temp and R).
+* What % of time would we see that relationship by chance? This is the p-value.
+
+We want the p-value to be very, very low. However, p-values are terrible. They don't measure the probability that
+the hypothesis is true. P-value doesn't measure the size of an effect or the importance of a result.
+
 ## Null Hypothesis Significance Testing
 ## Turn predictive model into something useful in production
 ## Practical exercise with Bing Image Search
