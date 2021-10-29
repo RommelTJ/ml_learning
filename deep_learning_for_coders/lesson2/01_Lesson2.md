@@ -139,6 +139,12 @@ We want the p-value to be very, very low. However, p-values are terrible. They d
 the hypothesis is true. P-value doesn't measure the size of an effect or the importance of a result.
 
 ## Null Hypothesis Significance Testing
+
+If a p-value is greater than .05, it could still be random chance. 0.01 is probably ok. But you should not use p-values.
+
+A graph shows a uni-variant relationship (independent vs dependent variable). When you model with more variables,
+you end up with statistically significant results. For example, denser cities will have more transmissions for disease.
+
 ## Turn predictive model into something useful in production
 ## Practical exercise with Bing Image Search
 ## Bing Image Sign up
