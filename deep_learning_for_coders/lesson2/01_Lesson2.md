@@ -95,6 +95,12 @@ inputs + parameters => architecture -> predictions + labels -> loss -> update fu
 Chapter is over.
 
 ## Where to find pretrained models
+
+You can find pretrained models at: 
+* Google "model zoo" or "pretrained models".
+* ImageNet is very general.
+* Lots of opportunities for domain-specific models.
+
 ## The state of deep learning
 ## Recommendation vs Prediction
 ## Interpreting Models - P value
