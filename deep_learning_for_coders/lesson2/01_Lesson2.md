@@ -156,6 +156,9 @@ Use the Drivetrain approach:
 4. Models: How the levers influence the objective.
 
 ## Practical exercise with Bing Image Search
+
+See Jupyter Notebook.
+
 ## Bing Image Sign up
 ## Data Block API
 ## Summary
