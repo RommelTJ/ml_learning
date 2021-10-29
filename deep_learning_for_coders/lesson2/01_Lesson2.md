@@ -83,6 +83,9 @@ You can detect fraud by visualizing mouse movements as images and then creating 
 You can identify viruses by turning them into pictures.
 
 ## List of most important terms used in this course
+
+See https://youtu.be/BvHmRx14HQ8?t=1892
+
 ## Arthur Samuel’s overall approach to neural networks
 ## End of Chapter 1 of the Book
 ## Where to find pretrained models
