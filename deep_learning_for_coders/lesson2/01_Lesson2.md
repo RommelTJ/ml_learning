@@ -54,7 +54,7 @@ You don't want to choose from the middle. You want to choose from the end so it 
 
 Transfer Learning: Using a pretrained model for a task different to what it was originally trained for.
 
-Ex: `resnet34` is good at image recognition trained on IMAGE NET. But if you then take that model and train it
+Ex: `resnet34` is good at image recognition trained on ImageNet. But if you then take that model and train it
 on your model, you can end up with a far more accurate model. This is called transfer learning.
 
 Transfer learning is a key technique to use less data and less compute and get better accuracy. A key focus for the 
@@ -66,6 +66,10 @@ Fine Tuning: A transfer learning technique where the weights of a pretrained mod
 for additional epochs using a different task to that used for pretraining.
 
 ## Why transfer learning works so well
+
+Transfer learning works well because with each layer the model gets more sophisticated. It builds upon 
+pre-learned features to find new features.
+
 ## Vision techniques used for sound
 ## Using pictures to create fraud detection at Splunk
 ## Detecting viruses using CNN
