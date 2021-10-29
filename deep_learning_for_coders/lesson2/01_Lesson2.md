@@ -111,6 +111,14 @@ You can find pretrained models at:
 * Other: NLP -> Protein.
 
 ## Recommendation vs Prediction
+
+A recommendation and a prediction is not the same thing.
+
+If you buy a book by one author on Amazon, 
+* it may be likely (prediction) you'll buy something from the same author, 
+* but it may be a bad recommendation.
+* A librarian might recommend a similar book from a different author.
+
 ## Interpreting Models - P value
 ## Null Hypothesis Significance Testing
 ## Turn predictive model into something useful in production
