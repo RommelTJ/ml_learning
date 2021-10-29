@@ -79,6 +79,9 @@ These techniques can also be used to recognize sounds by representing sounds as 
 You can detect fraud by visualizing mouse movements as images and then creating an anti-fraud model.
 
 ## Detecting viruses using CNN
+
+You can identify viruses by turning them into pictures.
+
 ## List of most important terms used in this course
 ## Arthur Samuel’s overall approach to neural networks
 ## End of Chapter 1 of the Book
