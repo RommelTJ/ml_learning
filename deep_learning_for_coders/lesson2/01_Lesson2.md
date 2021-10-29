@@ -71,6 +71,9 @@ Transfer learning works well because with each layer the model gets more sophist
 pre-learned features to find new features.
 
 ## Vision techniques used for sound
+
+These techniques can also be used to recognize sounds by representing sounds as pictures.
+
 ## Using pictures to create fraud detection at Splunk
 ## Detecting viruses using CNN
 ## List of most important terms used in this course
