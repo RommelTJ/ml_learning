@@ -175,3 +175,5 @@ The Data Block API is used to quickly get your data in a data loader.
 Data Loaders is a class which provides batches of a few items at a time to the GPU.
 
 ## Summary
+
+You can use trained models in production. See Jupyter notebook.
