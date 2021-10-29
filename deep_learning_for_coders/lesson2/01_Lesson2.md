@@ -51,6 +51,15 @@ You don't want to choose from the middle. You want to choose from the end so it 
 * If considering an external vendor, hold out some test data to validate your performance. Don't tell the vendor.
 
 ## Transfer learning
+
+Transfer Learning: Using a pretrained model for a task different to what it was originally trained for.
+
+Ex: `resnet34` is good at image recognition trained on IMAGE NET. But if you then take that model and train it
+on your model, you can end up with a far more accurate model. This is called transfer learning.
+
+Transfer learning is a key technique to use less data and less compute and get better accuracy. A key focus for the 
+fastAI library.
+
 ## Fine tuning
 ## Why transfer learning works so well
 ## Vision techniques used for sound
