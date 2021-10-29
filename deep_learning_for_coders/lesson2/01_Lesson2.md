@@ -61,6 +61,10 @@ Transfer learning is a key technique to use less data and less compute and get b
 fastAI library.
 
 ## Fine tuning
+
+Fine Tuning: A transfer learning technique where the weights of a pretrained model are updated by training
+for additional epochs using a different task to that used for pretraining.
+
 ## Why transfer learning works so well
 ## Vision techniques used for sound
 ## Using pictures to create fraud detection at Splunk
