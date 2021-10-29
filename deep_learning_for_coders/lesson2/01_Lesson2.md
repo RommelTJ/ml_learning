@@ -75,6 +75,9 @@ pre-learned features to find new features.
 These techniques can also be used to recognize sounds by representing sounds as pictures.
 
 ## Using pictures to create fraud detection at Splunk
+
+You can detect fraud by visualizing mouse movements as images and then creating an anti-fraud model.
+
 ## Detecting viruses using CNN
 ## List of most important terms used in this course
 ## Arthur Samuel’s overall approach to neural networks
