@@ -87,6 +87,9 @@ You can identify viruses by turning them into pictures.
 See https://youtu.be/BvHmRx14HQ8?t=1892
 
 ## Arthur Samuel’s overall approach to neural networks
+
+inputs + parameters => architecture -> predictions + labels -> loss -> update function -> parameters (loop).
+
 ## End of Chapter 1 of the Book
 ## Where to find pretrained models
 ## The state of deep learning
