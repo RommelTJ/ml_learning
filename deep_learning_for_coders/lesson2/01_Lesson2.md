@@ -164,4 +164,14 @@ See Jupyter Notebook.
 A pain in Azure.
 
 ## Data Block API
+
+The Data Block API is used to quickly get your data in a data loader.
+1. You tell fastAI what your independent and dependent variables are. 
+2. Then you tell it how to get a list of images.
+3. Then you tell it how to split the data into testing and validation set.
+4. Then you say how to label the data.
+5. Finally, we do items transforms.
+
+Data Loaders is a class which provides batches of a few items at a time to the GPU.
+
 ## Summary
