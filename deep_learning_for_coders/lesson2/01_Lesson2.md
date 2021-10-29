@@ -102,6 +102,14 @@ You can find pretrained models at:
 * Lots of opportunities for domain-specific models.
 
 ## The state of deep learning
+
+* Vision: Detection; Classification.
+* Text: Classification (good); Conversation (terrible).
+* Tabular: High Cardinality (like Zip Codes); GPU (Rapids).
+* Recsys: Prediction <> Recommendation.
+* Multi-modal: Labeling; Captioning; Human in the loop.
+* Other: NLP -> Protein.
+
 ## Recommendation vs Prediction
 ## Interpreting Models - P value
 ## Null Hypothesis Significance Testing
