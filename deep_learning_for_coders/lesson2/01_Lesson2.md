@@ -160,5 +160,8 @@ Use the Drivetrain approach:
 See Jupyter Notebook.
 
 ## Bing Image Sign up
+
+A pain in Azure.
+
 ## Data Block API
 ## Summary
