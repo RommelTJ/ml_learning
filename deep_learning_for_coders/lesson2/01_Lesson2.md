@@ -44,6 +44,12 @@ Splitting off our validation data means our model never sees it in training, and
 right? Wrong. You can still cheat by fitting to the validation set. A test set, a third set of data, might be best.
 
 ## How to choose your training set
+
+You don't want to choose from the middle. You want to choose from the end so it can predict the future.
+
+* Understanding the test and validation sets is the most important thing to avoid failures.
+* If considering an external vendor, hold out some test data to validate your performance. Don't tell the vendor.
+
 ## Transfer learning
 ## Fine tuning
 ## Why transfer learning works so well
