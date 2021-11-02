@@ -1,6 +1,9 @@
 # Lesson 3
 
 ## Recap of Lesson 2 + What's next
+
+Finish production stuff and learn about what goes on when we train a neural network. 
+
 ## Resizing Images with DataBlock
 ## Data Augmentation and item_tfms vs batch_tfms
 ## Training your model, and using it to clean your data
