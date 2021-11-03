@@ -27,6 +27,25 @@ One of the best ways is to use `aug_transforms`.
 You can use `ImageClassifierCleaner` to select, delete, or relabel image for training or validating.
 
 ## Turning your model into an online application
+
+You can export stuff into a pkl file and then load it into a learner and call predict.
+
+The tensor returned by predict is the most important value. You can get the mapping via `learn_inf.dls.vocab`.
+
+The course uses IPython widgets (ipywidgets) and Voila to publish apps.
+* A FileUpload widget allows you to upload images.
+* An Output widget allows you to set up a placeholder.
+* A Label widget allows you to add text.
+* A Button widget allows you to add a button with a click event handler.
+
+A VBox is a vertical box to create your GUI.
+
+Voila takes a notebook and only displays the widgets. This lets you run it in a mobile app.
+
+Binder is a tool to paste the path to your notebook on Github and generates a URL that anyone can use. 
+
+Things are deployed using a CPU, not a GPU. This is fine since you're not processing many images. CPU is cheaper.
+
 ## Deploying to a mobile phone
 ## How to avoid disaster
 ## Unforeseen consequences and feedback loops
