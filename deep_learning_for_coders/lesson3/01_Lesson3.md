@@ -47,6 +47,10 @@ Binder is a tool to paste the path to your notebook on Github and generates a UR
 Things are deployed using a CPU, not a GPU. This is fine since you're not processing many images. CPU is cheaper.
 
 ## Deploying to a mobile phone
+
+Deploy to a server, then have the mobile app communicate to the server. Trying to run PyTorch on the phone is 
+difficult.
+
 ## How to avoid disaster
 ## Unforeseen consequences and feedback loops
 ## End of Chapter 2 Recap + Blogging
