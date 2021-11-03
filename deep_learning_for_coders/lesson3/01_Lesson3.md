@@ -15,6 +15,13 @@ You can then use `bears = bears.new(item_tfms=Resize(128, ResizeMethod.Squish))`
 * RandomResizedCrop: Each time, grab a different part of the image, and zoom into it. The most common approach. 
 
 ## Data Augmentation and item_tfms vs batch_tfms
+
+Data Augmentation is the idea of doing something so that the model sees an image differently each time.
+
+One of the best ways is to use `aug_transforms`.
+* `batch_tfms`: Batch Transforms. Happen in groups and in the GPU.
+* `item_tfms`: Item Transforms. Transforms one image at a time.
+
 ## Training your model, and using it to clean your data
 ## Turning your model into an online application
 ## Deploying to a mobile phone
