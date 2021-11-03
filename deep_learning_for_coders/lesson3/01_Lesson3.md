@@ -52,6 +52,31 @@ Deploy to a server, then have the mobile app communicate to the server. Trying t
 difficult.
 
 ## How to avoid disaster
+
+The world is full of biased data. Bing Image Search returns a bunch of white women for "healthy skin". This becomes a
+"young white woman touching her face" detector. Be careful. Gather data that reflects the real world.
+
+"Building Machine Learning Powered Applications" book is good at pointing this out.
+
+Out of Domain Data: Data that our model sees in production which is very different to what it saw during training.
+
+Ways to address out of domain data:
+* Having a diverse team.
+* Writing the attributes of your data sets and publishing its limitations.
+
+Domain Shift: When the type of data that our model sees changes over time. 
+
+Recommendation:
+1. Manual process
+   1. Run model in parallel
+   2. Humans check predictions
+2. Limited scope deployment
+   1. Careful human supervision
+   2. Time or geography limited
+3. Gradual expansion
+   1. Good reporting systems needed
+   2. Consider what could go wrong
+
 ## Unforeseen consequences and feedback loops
 ## End of Chapter 2 Recap + Blogging
 ## Starting MNIST from scratch
