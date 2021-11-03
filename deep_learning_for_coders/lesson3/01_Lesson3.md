@@ -23,6 +23,9 @@ One of the best ways is to use `aug_transforms`.
 * `item_tfms`: Item Transforms. Transforms one image at a time.
 
 ## Training your model, and using it to clean your data
+
+You can use `ImageClassifierCleaner` to select, delete, or relabel image for training or validating.
+
 ## Turning your model into an online application
 ## Deploying to a mobile phone
 ## How to avoid disaster
