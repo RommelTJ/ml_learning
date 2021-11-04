@@ -215,4 +215,17 @@ Picking a good learning rate can be difficult.
 11. Repeat until we get a good prediction.
 
 ## MNIST loss function
-## Lesson 3 review 
+
+We need a loss function to represent our model. We want to calculate the accuracy of our model as a metric.
+
+Problem: We need to find the gradient. But a small change in slope isn't likely to change a prediction from a 3 or 7.
+We can't use our metric as our loss, therefore, because the gradient is 0.
+
+The purpose of the loss function is to measure the difference between predicted values and the true values.
+
+```
+def mnist_loss(predictions, targets):
+  return torch.where(targets=1, 1-predictions, predictions).mean()
+```
+
+## Lesson 3 review
