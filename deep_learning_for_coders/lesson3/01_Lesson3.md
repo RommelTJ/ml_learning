@@ -89,6 +89,9 @@ You want to add points where humans can observe and change things. Don't want to
 engineers.
 
 ## End of Chapter 2 Recap + Blogging
+
+Writing is important. Things get more complicated. Writing down what you learned helps solidify learning.
+
 ## Starting MNIST from scratch
 ## untar_data and path explained
 ## Exploring at the MNIST data
