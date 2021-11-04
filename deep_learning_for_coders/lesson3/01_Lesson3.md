@@ -131,6 +131,23 @@ us two groups of averages, and when we pass a digit, we can see if it's closer t
    * When we try them both, they both correctly determine that the image is a 3.
 
 ## Working with arrays and tensors
+
+Consider the following data: `data = [[1, 2, 3], [4, 5, 6]]`
+
+NumPy arrays and PyTorch tensors look the same. You can index into a row like `tns[1]`,
+you can index into a column like `tns[:,1]`. 
+
+`:` means all of the first dimension. 
+
+You can combine and use like Python slice syntax `[start:end]`, with `end` being excluded.
+`tns[1, 1:3]` = `tensor([5, 6])`
+
+You can add: `tns+1` will add 1 to each value.
+
+Other operations: 
+* `tns.type()` -> torch.LongTensor.
+* `tns*1.5` -> Converts tensor from int to float.
+
 ## Computing metrics with Broadcasting
 ## Stochastic Gradient Descent (SGD)
 ## End-to-end Gradient Descent example
