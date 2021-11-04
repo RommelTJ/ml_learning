@@ -201,5 +201,18 @@ Learning Rate = How much to adjust your weights by. Usually small, like  0.001 a
 Picking a good learning rate can be difficult.
 
 ## End-to-end Gradient Descent example
+
+1. Calculate the speed of a roller coaster as it went over the top of a hump.
+2. We start by guessing the prediction function. Input is time and parameters.
+3. We make a loss function: `def mse(preds, targets)`.
+4. Initial all values randomly.
+5. Calculate predictions on random values.
+6. Create function to calculate how good are our predictions.
+7. Calculate the loss.
+8. Calculate the gradients.
+9. Pick a learning rate of 1^10-5.
+10. Step the weights
+11. Repeat until we get a good prediction.
+
 ## MNIST loss function
 ## Lesson 3 review 
