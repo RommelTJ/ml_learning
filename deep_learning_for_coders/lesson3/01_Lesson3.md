@@ -149,6 +149,15 @@ Other operations:
 * `tns*1.5` -> Converts tensor from int to float.
 
 ## Computing metrics with Broadcasting
+
+We need to determine how good our model is. We get all the valid values and create a valid set of 3's and 7's.
+Then we write the `mnist_distance` to calculate mean distance and we run for every image in the validation set.
+
+`Broadcasting`: PyTorch technique to automatically expand the tensor with the smallest rank to have the same size
+as the one with the largest rank. Makes the code easier to write.
+
+End result is over 90% accurate.
+
 ## Stochastic Gradient Descent (SGD)
 ## End-to-end Gradient Descent example
 ## MNIST loss function
