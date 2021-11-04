@@ -229,3 +229,5 @@ def mnist_loss(predictions, targets):
 ```
 
 ## Lesson 3 review
+
+We stop here.
