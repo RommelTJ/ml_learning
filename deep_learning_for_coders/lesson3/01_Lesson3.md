@@ -112,6 +112,10 @@ The path to `/path/train/7/<IMG>.png` has all the 7's.
 PIL is the Python Image Library.
 
 ## NumPy Array vs PyTorch Tensor
+
+NumPy Array converts the image to an array of numbers. You can also do this with a Tensor in PyTorch.
+PyTorch Tensors have the advantage of GPU computation.
+
 ## Creating a simple baseline model
 ## Working with arrays and tensors
 ## Computing metrics with Broadcasting
