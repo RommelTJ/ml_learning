@@ -105,6 +105,12 @@ First thing is to build a classifier that can recognize if a digit is a 3 or a 7
 `path` = A pathlib PosixPath object that helps us navigate path to files.
 
 ## Exploring at the MNIST data
+
+The path to `/path/train/3/<IMG>.png` has all the 3's.  
+The path to `/path/train/7/<IMG>.png` has all the 7's.  
+
+PIL is the Python Image Library.
+
 ## NumPy Array vs PyTorch Tensor
 ## Creating a simple baseline model
 ## Working with arrays and tensors
