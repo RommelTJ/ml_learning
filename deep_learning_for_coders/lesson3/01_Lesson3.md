@@ -93,6 +93,11 @@ engineers.
 Writing is important. Things get more complicated. Writing down what you learned helps solidify learning.
 
 ## Starting MNIST from scratch
+
+We're going to try to recognize hand-written digits from scratch. 
+
+First thing is to build a classifier that can recognize if a digit is a 3 or a 7.
+
 ## untar_data and path explained
 ## Exploring at the MNIST data
 ## NumPy Array vs PyTorch Tensor
