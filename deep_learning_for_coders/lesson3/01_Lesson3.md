@@ -99,6 +99,11 @@ We're going to try to recognize hand-written digits from scratch.
 First thing is to build a classifier that can recognize if a digit is a 3 or a 7.
 
 ## untar_data and path explained
+
+`untar_data` = fastai function used to take a url, download data, uncompress it, and return path of where the data is.
+
+`path` = A pathlib PosixPath object that helps us navigate path to files.
+
 ## Exploring at the MNIST data
 ## NumPy Array vs PyTorch Tensor
 ## Creating a simple baseline model
