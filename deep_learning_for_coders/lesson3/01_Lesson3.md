@@ -78,6 +78,16 @@ Recommendation:
    2. Consider what could go wrong
 
 ## Unforeseen consequences and feedback loops
+
+Feedback loops are challenging for real world deployments. A minor issue can explode into a big issue.
+Ex: Predictive policing.
+
+A good way to go about it to ask yourself, "What would happen if a ML system went really well? What would extreme
+results look like?"
+
+You want to add points where humans can observe and change things. Don't want to have it isolated from product and 
+engineers.
+
 ## End of Chapter 2 Recap + Blogging
 ## Starting MNIST from scratch
 ## untar_data and path explained
