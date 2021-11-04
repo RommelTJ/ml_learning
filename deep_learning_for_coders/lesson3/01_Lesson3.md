@@ -117,6 +117,19 @@ NumPy Array converts the image to an array of numbers. You can also do this with
 PyTorch Tensors have the advantage of GPU computation.
 
 ## Creating a simple baseline model
+
+1. Try Pixel Similarity. Find the average pixel value for every pixel of threes and same for seven. This will give
+us two groups of averages, and when we pass a digit, we can see if it's closer to the "ideal" 3 or 7.
+   * Make a list of all the sevens and threes and turn them into tensors.
+   * show_image can display a tensor as an image
+   * We can stack all the threes and sevens to gauge the pixel intensity using torch.stack.
+   * Rank is the number of dimensions in a tensor (i.e. its length). 
+   * Shape is the size of each dimension of a tensor.
+   * You have to convert the intensities in the tensors to be positive so we can calculate distance.
+   * You could use absolute value (mean absolute difference or L1 norm), or 
+   * the mean of the square of differences and then take the square root (root mean squared error RMSE or L2 norm).
+   * When we try them both, they both correctly determine that the image is a 3.
+
 ## Working with arrays and tensors
 ## Computing metrics with Broadcasting
 ## Stochastic Gradient Descent (SGD)
