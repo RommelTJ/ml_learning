@@ -123,12 +123,13 @@ us two groups of averages, and when we pass a digit, we can see if it's closer t
    * Make a list of all the sevens and threes and turn them into tensors.
    * show_image can display a tensor as an image
    * We can stack all the threes and sevens to gauge the pixel intensity using torch.stack.
-   * Rank is the number of dimensions in a tensor (i.e. its length). 
-   * Shape is the size of each dimension of a tensor.
    * You have to convert the intensities in the tensors to be positive so we can calculate distance.
    * You could use absolute value (mean absolute difference or L1 norm), or 
    * the mean of the square of differences and then take the square root (root mean squared error RMSE or L2 norm).
    * When we try them both, they both correctly determine that the image is a 3.
+
+Rank: The number of dimensions in a tensor (i.e. its length).
+Shape: The size of each dimension of a tensor.
 
 ## Working with arrays and tensors
 
@@ -159,6 +160,46 @@ as the one with the largest rank. Makes the code easier to write.
 End result is over 90% accurate.
 
 ## Stochastic Gradient Descent (SGD)
+
+The pixel similarity does not fit the workflow of the Arthur Samuel model.
+
+Instead we come up with a set of weights for each pixel.
+`def pr_eight(x, w) = (x * w).sum()`, where x is the image, and w is the weights.
+
+A vector is a rank 1 tensor.
+
+To approach this using SGD, these are the steps: 
+1. Initialize the weights
+2. For each image, use these weights to predict whether it appears to be a three or a seven
+3. Based on these predictions, calculate how good the model is (its loss).
+4. Calculate the gradient, which measures for each weight, how changing that weight would change the loss.
+5. Step (that is, change) all weights based on that calculation.
+6. Go back to the step 2, repeat until you decide to stop the process (loss is good enough or you don't want to wait).
+
+```
+init -> predict -> loss -> gradient -> step -> (maybe loop back to predict) -> stop
+```
+
+PyTorch has calculus optimizations to calculate gradients. 
+* `requires_grad_()` is an in-memory operation to keep track of gradients.
+* `backward()` takes a derivative.
+* `grad` stores the derivative.
+
+Example: 
+```
+xt = tensor([3., 4., 10.]).requires_grad_()
+def f(x): return (x**2).sum()
+yt = f(xt)
+yt.backward()
+xt.grad
+tensor([6., 8., 20.])
+```
+
+The gradient only tells us the slope of our function, not how far to make the adjustments.
+
+Learning Rate = How much to adjust your weights by. Usually small, like  0.001 and 0.1.
+Picking a good learning rate can be difficult.
+
 ## End-to-end Gradient Descent example
 ## MNIST loss function
 ## Lesson 3 review 
