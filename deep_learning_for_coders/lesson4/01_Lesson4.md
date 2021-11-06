@@ -49,6 +49,9 @@ preds = linear1(train_x)
 ```
 
 ## Why you shouldn't use accuracy loss function to update parameters
+
+Because it gets  a 0 gradient all over the place.
+
 ## Creating a good loss function
 ## Updating parameters with mini-batches and DataLoader
 ## Putting it all together
