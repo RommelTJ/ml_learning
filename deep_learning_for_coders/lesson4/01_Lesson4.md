@@ -12,6 +12,17 @@ The view method lets you reshape things in PyTorch.
 `train_y = tensor([1]*len(threes) + [0]*len(sevens)).unsqueeze(1)`
 
 ## What is a Dataset in PyTorch?
+
+DataSet: A PyTorch concept that when indexed into it returns a tuple of independent and dependent variables.
+
+```
+dset = list(zip(train_x,train_y))
+x,y = dset[0]
+valid_x = torch.cat([valid_3_tens, valid_7_tens]).view(-1, 28*28)
+valid_y = tensor([1]*len(valid_3_tens) + [0]*len(valid_7_tens)).unsqueeze(1)
+valid_dset = list(zip(valid_x,valid_y))
+```
+
 ## Initializing our parameters
 ## Predicting images with matrix multiplication
 ## Why you shouldn't use accuracy loss function to update parameters
