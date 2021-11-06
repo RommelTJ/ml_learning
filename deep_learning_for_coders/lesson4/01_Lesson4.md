@@ -36,6 +36,18 @@ Random initialization.
 Parameters: The weights and biases of a model.
 
 ## Predicting images with matrix multiplication
+
+Prediction for one image:  
+`(train_x[0]*weights.T).sum() + bias`
+
+For-loop is slow because it wouldn't run on the GPU. Thus, we need to represent them in Higher-level functions.
+
+We do this with matrix multiplication. In Python, matrix multiplication is represented with the `@` operator: 
+```
+def linear1(xb): return xb@weights + bias
+preds = linear1(train_x)
+```
+
 ## Why you shouldn't use accuracy loss function to update parameters
 ## Creating a good loss function
 ## Updating parameters with mini-batches and DataLoader
