@@ -5,6 +5,12 @@
 Arthur Samuel definition of Stochastic Gradient Descent.
 
 ## MNIST Loss Function
+
+The view method lets you reshape things in PyTorch.
+
+`train_x = torch.cat([stacked_threes, stacked_sevens]).view(-1, 28*28)`
+`train_y = tensor([1]*len(threes) + [0]*len(sevens)).unsqueeze(1)`
+
 ## What is a Dataset in PyTorch?
 ## Initializing our parameters
 ## Predicting images with matrix multiplication
