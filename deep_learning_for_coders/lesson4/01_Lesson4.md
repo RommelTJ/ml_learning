@@ -1,6 +1,9 @@
 # Lesson 4
 
 ## Review of Lesson 3 + SGD
+
+Arthur Samuel definition of Stochastic Gradient Descent.
+
 ## MNIST Loss Function
 ## What is a Dataset in PyTorch?
 ## Initializing our parameters
