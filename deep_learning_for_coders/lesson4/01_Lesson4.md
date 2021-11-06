@@ -24,6 +24,17 @@ valid_dset = list(zip(valid_x,valid_y))
 ```
 
 ## Initializing our parameters
+
+Random initialization.
+
+`requires_grad_()` sets up the tensor to require a gradient.
+
+`def init_params(size, std=1.0): return (torch.randn(size)*std).requires_grad_()`
+`weights = init_params((28*28,1))`
+`bias = init_params(1)`
+
+Parameters: The weights and biases of a model.
+
 ## Predicting images with matrix multiplication
 ## Why you shouldn't use accuracy loss function to update parameters
 ## Creating a good loss function
