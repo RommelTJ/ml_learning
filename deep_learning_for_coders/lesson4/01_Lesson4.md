@@ -53,6 +53,34 @@ preds = linear1(train_x)
 Because it gets  a 0 gradient all over the place.
 
 ## Creating a good loss function
+
+What does a "slightly better prediction" look like?
+
+```
+trgts  = tensor([1,0,1])
+prds   = tensor([0.9, 0.4, 0.2])
+
+def mnist_loss(predictions, targets):
+    return torch.where(targets==1, 1-predictions, predictions).mean()
+    
+mnist_loss(prds,trgts) # tensor(0.4333)
+
+mnist_loss(tensor([0.9, 0.4, 0.8]),trgts) # tensor(0.2333)
+```
+
+This is only going to look well as long as the predictions are always between 0 and 1.
+
+We need a function to take numbers and turn them into numbers between 0 and 1.
+
+Sigmoid function:  
+`def sigmoid(x): return 1/(1+torch.exp(-x))`
+
+```
+def mnist_loss(predictions, targets):
+    predictions = predictions.sigmoid()
+    return torch.where(targets==1, 1-predictions, predictions).mean()
+```
+
 ## Updating parameters with mini-batches and DataLoader
 ## Putting it all together
 ## Refactoring and Creating an optimizer
