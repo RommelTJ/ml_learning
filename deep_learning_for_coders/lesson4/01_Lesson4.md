@@ -82,6 +82,16 @@ def mnist_loss(predictions, targets):
 ```
 
 ## Updating parameters with mini-batches and DataLoader
+
+Grab a few data items at a time to calculate loss and step. This is called a "mini-batch".
+
+```
+coll = range(15)
+dl = DataLoader(coll, batch_size=5, shuffle=True)
+ds = L(enumerate(string.ascii_lowercase))
+dl = DataLoader(ds, batch_size=6, shuffle=True)
+```
+
 ## Putting it all together
 ## Refactoring and Creating an optimizer
 ## The DataLoaders class
