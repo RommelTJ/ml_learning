@@ -93,6 +93,9 @@ dl = DataLoader(ds, batch_size=6, shuffle=True)
 ```
 
 ## Putting it all together
+
+Putting it all together... see `04_mnist_basics.ipynb`.
+
 ## Refactoring and Creating an optimizer
 ## The DataLoaders class
 ## The Learner class
