@@ -121,6 +121,12 @@ train_model(linear_model, 20)
 ```
 
 ## The DataLoaders class
+
+A class that accepts training and validation data.  
+```
+dls = DataLoaders(dl, valid_dl)
+```
+
 ## The Learner class
 ## Adding a non-linearity to create a neural network
 ## Looking at what the NN is learning by looking at the parameters
