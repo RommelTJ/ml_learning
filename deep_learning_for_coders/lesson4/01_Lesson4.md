@@ -203,6 +203,16 @@ learn.fit_one_cycle(1, 0.1)
 We get 99.7% in 1 epoch, and we got 98.3% in 40 epochs. fastai is faster and more accurate.
 
 ## Jargon review
+
+* ReLU: Function that returns 0 for negative numbers and doesn't change positive numbers.
+* Mini-batch: A few inputs and labels gathered together in two big arrays.
+* Forward-pass: Applying the model to some input and computing predictions.
+* Loss: A value that represents how will our model is doing.
+* Gradient: The derivative of the loss with respect to some parameter of the model.
+* Backward-pass: Computing the gradients of the loss with respect to all model parameters.
+* Gradient Descent: Taking a step in the directions opposite to the gradients to make the model parameters a bit better.
+* Learning Rate: The size of the step we take when applying SGD to update the parameters of the model.
+
 ## Is there a rule of thumb for which non-linearity to choose?
 ## Pet breeds image classification
 ## Presizing
