@@ -97,6 +97,29 @@ dl = DataLoader(ds, batch_size=6, shuffle=True)
 Putting it all together... see `04_mnist_basics.ipynb`.
 
 ## Refactoring and Creating an optimizer
+
+An optimizer is an object in PyTorch that will handle the SGD for us.
+
+`linear_model = nn.Linear(28*28, 1)`
+
+```
+class BasicOptim:
+    def __init__(self,params,lr): self.params,self.lr = list(params),lr
+
+    def step(self, *args, **kwargs):
+        for p in self.params: p.data -= p.grad.data * self.lr
+
+    def zero_grad(self, *args, **kwargs):
+        for p in self.params: p.grad = None
+```
+
+fastai provides an SGD class which by default does the same thing as our BasicOptim:  
+```
+linear_model = nn.Linear(28*28,1)
+opt = SGD(linear_model.parameters(), lr)
+train_model(linear_model, 20)
+```
+
 ## The DataLoaders class
 ## The Learner class
 ## Adding a non-linearity to create a neural network
