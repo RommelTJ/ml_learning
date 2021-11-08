@@ -179,6 +179,18 @@ nn.Sequential allows us to do function composition.
 We train for 40 epochs and adjust by 0.1 learning rate. 
 
 ## Looking at what the NN is learning by looking at the parameters
+
+We will look at this later.  
+But you can grab the model with `learn.model` and index values and look at parameteres and values.  
+
+```
+m = learn.model
+w,b = m[0].parameters()
+show_image(w[0].view(28, 28))
+```
+
+It's learning to find things at the top and the middle.
+
 ## Comparing the results with the fastai toolkit
 ## Jargon review
 ## Is there a rule of thumb for which non-linearity to choose?
