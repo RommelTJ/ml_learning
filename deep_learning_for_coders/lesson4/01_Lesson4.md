@@ -138,6 +138,46 @@ Then you call `fit` and it trains our model:
 `learn.fit(10, lr=lr)`
 
 ## Adding a non-linearity to create a neural network
+
+Neural Network > Linear functions.
+
+Our current function is linear. To turn it into a neural network:  
+```
+def simple_net(xb): 
+    res = xb@w1 + b1
+    res = res.max(tensor(0.0))
+    res = res@w2 + b2
+    return res
+```
+
+Then we can initialize like:  
+```
+w1 = init_params((28*28,30))
+b1 = init_params(30)
+w2 = init_params((30,1))
+b2 = init_params(1)
+```
+
+This function is called `rectified linear unit`.
+
+By adding a non-linear function between linear layers, we make the universal approximation theorem hold. It makes
+it solve for any kind of problem.
+
+We can simplify with fastai to:  
+```
+simple_net = nn.Sequential(
+    nn.Linear(28*28,30),
+    nn.ReLU(),
+    nn.Linear(30,1)
+)
+learn = Learner(dls, simple_net, opt_func=SGD, loss_func=mnist_loss, metrics=batch_accuracy)
+learn.fit(40, 0.1)
+```
+
+nn.Sequential allows us to do function composition.
+
+We train for 40 epochs and adjust by 0.1 learning rate. 
+
 ## Looking at what the NN is learning by looking at the parameters
 ## Comparing the results with the fastai toolkit
 ## Jargon review
