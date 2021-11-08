@@ -128,6 +128,15 @@ dls = DataLoaders(dl, valid_dl)
 ```
 
 ## The Learner class
+
+A class that takes in a DataLoaders, model, optimization function, loss function, and optional metrics to print:  
+```
+learn = Learner(dls, nn.Linear(28*28,1), opt_func=SGD, loss_func=mnist_loss, metrics=batch_accuracy)
+```
+
+Then you call `fit` and it trains our model:  
+`learn.fit(10, lr=lr)`
+
 ## Adding a non-linearity to create a neural network
 ## Looking at what the NN is learning by looking at the parameters
 ## Comparing the results with the fastai toolkit
