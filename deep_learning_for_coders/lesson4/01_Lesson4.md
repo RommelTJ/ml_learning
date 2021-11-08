@@ -192,6 +192,16 @@ show_image(w[0].view(28, 28))
 It's learning to find things at the top and the middle.
 
 ## Comparing the results with the fastai toolkit
+
+```
+dls = ImageDataLoaders.from_folder(path)
+learn = cnn_learner(dls, resnet18, pretrained=False,
+                    loss_func=F.cross_entropy, metrics=accuracy)
+learn.fit_one_cycle(1, 0.1)
+```
+
+We get 99.7% in 1 epoch, and we got 98.3% in 40 epochs. fastai is faster and more accurate.
+
 ## Jargon review
 ## Is there a rule of thumb for which non-linearity to choose?
 ## Pet breeds image classification
