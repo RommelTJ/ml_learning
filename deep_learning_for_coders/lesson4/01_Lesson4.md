@@ -281,6 +281,10 @@ learn.fine_tune(2)
 ```
 
 ## Presizing (question)
+
+How does the item transform work if the resize is smaller than the image? The image transforms will zoom and/or 
+end up with lower resolution.
+
 ## Training model to clean your data
 ## How fastai chooses a loss function
 ## Cross-Entropy Loss and Softmax
