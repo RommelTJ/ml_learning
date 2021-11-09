@@ -214,6 +214,9 @@ We get 99.7% in 1 epoch, and we got 98.3% in 40 epochs. fastai is faster and mor
 * Learning Rate: The size of the step we take when applying SGD to update the parameters of the model.
 
 ## Is there a rule of thumb for which non-linearity to choose?
+
+No.
+
 ## Pet breeds image classification
 ## Presizing
 ## Checking and debugging a DataBlock
