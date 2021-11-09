@@ -296,4 +296,37 @@ Have a model and use it to clean your data.
 `learn.loss_func` -> `CrossEntroyLoss`.
 
 ## Cross-Entropy Loss and Softmax
+
+Cross-Entroy Loss is similar to the MNIST loss function, but it's extended. Previously, it worked on binary output,
+this works with nicely for more than 2 categories.
+
+Grab a batch of data: `x,y = dls.one_batch()`
+
+View Predictions: `preds,_ = learn.get_preds(dl=[(x,y)])`
+
+The actual predictions are 37 probabilities that add up to 1:  
+`len(preds[0]),preds[0].sum()`
+
+Softmax: an extension of Sigmoid to handle more than 2 categories.  
+* If you just take a Sigmoid, it's between 0 and 1, but they don't add up to 1.
+* You can calculate the difference between two columns, and take the sigmoid of that.
+* then `torch.stack([diff.sigmoid(), 1 - diff.sigmoid()], dim=1)`
+* Now the pair of each adds to 1.
+* This concept is then used in softmax to extend to many categories
+* `def softmax(x): return exp(x) / exp(x).sum(dim=1, keepdim=True)`
+* Or with fastai: `torch.softmax(acts, dim=1)`
+
+Negative Log Likelihood:  
+`F.nll_loss(sm_acts, targ, reduction='none')`
+
+`torch.log` turns the numbers between 0 and 1 to be between negative infinity and positive infinity.
+
+`log(a*b) = log(a) + log(b)`
+
+If you take the softmax, then the log likelihood of that, that combination is called cross entropy loss.
+In PyTorch, this is called `nn.CrossEntropyLoss` (which does log_softmax -> `nll_loss`).
+* `loss_func = nn.CrossEntropyLoss()`
+* `loss_func(acts, targ)`
+* `F.cross_entropy(acts, targ)` is equivalent to the class version.
+
 ## Data Ethics and Efficacy of Masks for COVID-19
