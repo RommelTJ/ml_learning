@@ -266,6 +266,20 @@ TensorImage(x1[0]).show(ctx=axs[1]);
 ```
 
 ## Checking and debugging a DataBlock
+
+`dls.show_batch` will show you the images and labels, or your augmentations.
+
+```
+dls.show_batch(nrows=1, ncols=3)
+pets1 = DataBlock(blocks = (ImageBlock, CategoryBlock),
+                 get_items=get_image_files, 
+                 splitter=RandomSplitter(seed=42),
+                 get_y=using_attr(RegexLabeller(r'(.+)_\d+.jpg$'), 'name'))
+pets1.summary(path/"images")
+learn = cnn_learner(dls, resnet34, metrics=error_rate)
+learn.fine_tune(2)
+```
+
 ## Presizing (question)
 ## Training model to clean your data
 ## How fastai chooses a loss function
