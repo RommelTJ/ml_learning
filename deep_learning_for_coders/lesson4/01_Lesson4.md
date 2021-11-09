@@ -292,5 +292,8 @@ We don't do a lot of data cleaning. Model as soon as you can, because it can tea
 Have a model and use it to clean your data.
 
 ## How fastai chooses a loss function
+
+`learn.loss_func` -> `CrossEntroyLoss`.
+
 ## Cross-Entropy Loss and Softmax
 ## Data Ethics and Efficacy of Masks for COVID-19
