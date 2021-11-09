@@ -286,6 +286,11 @@ How does the item transform work if the resize is smaller than the image? The im
 end up with lower resolution.
 
 ## Training model to clean your data
+
+We don't do a lot of data cleaning. Model as soon as you can, because it can teach you about your data.
+
+Have a model and use it to clean your data.
+
 ## How fastai chooses a loss function
 ## Cross-Entropy Loss and Softmax
 ## Data Ethics and Efficacy of Masks for COVID-19
