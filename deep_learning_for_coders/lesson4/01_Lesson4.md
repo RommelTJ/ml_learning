@@ -330,3 +330,6 @@ In PyTorch, this is called `nn.CrossEntropyLoss` (which does log_softmax -> `nll
 * `F.cross_entropy(acts, targ)` is equivalent to the class version.
 
 ## Data Ethics and Efficacy of Masks for COVID-19
+
+People aren't convinced by the data. As a data scientist, you must communicate your understandings to decision makers.
+
