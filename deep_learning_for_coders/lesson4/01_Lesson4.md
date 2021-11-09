@@ -218,6 +218,28 @@ We get 99.7% in 1 epoch, and we got 98.3% in 40 epochs. fastai is faster and mor
 No.
 
 ## Pet breeds image classification
+
+Figuring out what breed a dog is.
+
+```
+from fastai.vision.all import *
+path = untar_data(URLs.PETS)
+Path.BASE_PATH = path
+path.ls()
+(path/"images").ls()
+fname = (path/"images").ls()[0]
+re.findall(r'(.+)_\d+.jpg$', fname.name)
+
+pets = DataBlock(blocks = (ImageBlock, CategoryBlock),
+                 get_items=get_image_files, 
+                 splitter=RandomSplitter(seed=42),
+                 get_y=using_attr(RegexLabeller(r'(.+)_\d+.jpg$'), 'name'),
+                 item_tfms=Resize(460),
+                 batch_tfms=aug_transforms(size=224, min_scale=0.75))
+                 
+dls = pets.dataloaders(path/"images")
+```
+
 ## Presizing
 ## Checking and debugging a DataBlock
 ## Presizing (question)
