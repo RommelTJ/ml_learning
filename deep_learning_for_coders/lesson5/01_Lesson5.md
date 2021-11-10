@@ -126,3 +126,23 @@ Humans are biased, so why does algorithmic bias matter?
 * Algorithms and humans are used differently.
 * Technology is power. And with that comes responsibility.
 
+## Questions to ask about AI
+
+* Should we even be doing this?
+  * Engineers tend to respond to problems with building stuff. Sometimes the answer is not to build.
+  * Ex: Racial or sexual recognition.
+* What bias is in the data?
+  * Be aware of the context of your data.
+* Can the code and data be audited?
+  * Companies creating technology that can impact people.
+* What are error rates for different groups?
+  * Dark-skinned error rates for facial recognition.
+* What is the accuracy of a simple rule-based alternative?
+  * Have a baseline.
+* What processes are in place to handle appeals or mistakes?
+  * Need to have a process for recourse.
+* How diverse is the team that built it?
+
+Fairness, Accountability and Transparency are important, but they aren't everything.
+* Ex: Being transparent about how to turn old people into mulch.
+
