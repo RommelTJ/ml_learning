@@ -41,3 +41,43 @@ Technology can be used in unintended ways:
 * Facial recognition developed for adults used with children.
 * NYPD using facial recognition with pics of Woody Harrelson.
 * Abusing confidential databases.
+
+## Feedback Loops and Metrics
+
+Overemphasizing metrics leads to:
+* Manipulation
+* Gaming
+* Myopic focus on short-term goals
+* Unexpected negative consequences
+
+Much of AI/ML centers on optimizing a metric.
+
+Examples:  
+* England implemented metrics to reduce ER wait times
+  * Led to cancelling operations or requiring patients to wait in ambulances.
+  * Discrepancies by patients and hospital.
+* Essay grading software focuses on sentence length, vocabulary, spelling, subject verb agreement.
+  * Can't evaluate things like creativity.
+  * Gibberish essays score well.
+  * Essays from African-American students receive lower grades from computer vs graders.
+  * Essays from students memorizing phrases scored higher.
+
+* Any metric is just a proxy for what you truly care about.  
+* Our online environments are designed to be addictive.
+* The incentives focus on short term metrics.
+* The fundamental business model is around manipulating people's behavior and monopolizing their time.
+
+The major tech platforms (unintentionally) incentivize and promote disinformation:  
+* Their design and architecture.
+* Their recommendation systems.
+* Their business models.
+
+Blitzscaling Premise: If a company grows big enough and fast enough, profits will eventually follow.  
+* Prioritizes speed over efficiency.
+* Risks potentially disastrous defeat.
+* Investors annoint winners (as opposed to market forces).
+
+How is speed/hypergrowth related to data ethics?
+* Hockey-stick growth requires automation and reliance on metrics.
+* Prioritizing speed above all else doesn't leave time to reflect on ethics.
+* Problems happen at a large scale.
