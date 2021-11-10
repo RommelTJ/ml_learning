@@ -16,3 +16,15 @@ Consider how your tech could be used:
 * By trolls, harassers
 * By authoritarian governments
 * For propaganda or misinformation
+
+## Ethics
+
+The discipline dealing with what is good and bag; a set of moral principles.
+* Ethics is not the same as religion, law, social norms, or feelings.
+* Ethics is not a fixed set of rules.
+
+Ethics is:
+1. Well-founded standards of right and wrong that prescribe what humans ought to do.
+2. The study and development of one's ethical standards.
+
+Casey Fiesler: Tech Ethics Curricula: A Collection of Syllabi.
