@@ -72,12 +72,57 @@ The major tech platforms (unintentionally) incentivize and promote disinformatio
 * Their recommendation systems.
 * Their business models.
 
-Blitzscaling Premise: If a company grows big enough and fast enough, profits will eventually follow.  
+Blitz-scaling Premise: If a company grows big enough and fast enough, profits will eventually follow.  
 * Prioritizes speed over efficiency.
 * Risks potentially disastrous defeat.
-* Investors annoint winners (as opposed to market forces).
+* Investors anoint winners (as opposed to market forces).
 
 How is speed/hypergrowth related to data ethics?
 * Hockey-stick growth requires automation and reliance on metrics.
 * Prioritizing speed above all else doesn't leave time to reflect on ethics.
 * Problems happen at a large scale.
+
+## Getting specific about bias
+
+Different types of bias:
+* Historical bias
+* Representation bias
+* Measurement bias
+* Aggregation bias
+* Evaluation bias
+
+Representation Bias
+* Gender classification worked worse with dark-skinned people.
+
+Benchmark datasets spur on research
+* But facial data sets may not be representative.
+* ImageNet images are from the West. Very few from outside the Western World.
+
+Recidivism algorithm used in prison sentencing
+* False positive rate for recidivism was 44% for African Americans. 
+
+Historical Bias
+* Even given a perfect sampling and feature selection, a structural issue might exist that leads to historical bias.
+* Might be mitigated by talking to domain experts and those impacted.
+
+Measurement Bias
+* Ex: Trying to predict strokes, they look at metrics to predict strokes.
+* Many of those metrics are from high utility patients vs low utility patients.
+* People that utilize healthcare a lot will go to the doctor for Sinusitis and Stroke.
+
+There are many studies on racial bias.
+
+Why does algorithmic bias matter?
+* Machine Learning can amplify bias.
+* Algorithms are used differently than human decision makers.
+  * People assume algorithms are error free.
+  * More likely to be implemented without an appeals process.
+  * Often used at scala.
+  * Are Often cheap.
+
+Humans are biased, so why does algorithmic bias matter?
+* Machine learning can create feedback loops.
+* Machine learning can amplify bias.
+* Algorithms and humans are used differently.
+* Technology is power. And with that comes responsibility.
+
