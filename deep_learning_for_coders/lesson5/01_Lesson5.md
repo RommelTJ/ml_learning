@@ -9,3 +9,10 @@
 ## Data collection in genocides
 
 IBM created computers that facilitated the tasks of the Nazis.
+
+## Unintended consequences
+
+Consider how your tech could be used:
+* By trolls, harassers
+* By authoritarian governments
+* For propaganda or misinformation
