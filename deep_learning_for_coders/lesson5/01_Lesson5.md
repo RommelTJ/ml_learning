@@ -28,3 +28,16 @@ Ethics is:
 2. The study and development of one's ethical standards.
 
 Casey Fiesler: Tech Ethics Curricula: A Collection of Syllabi.
+
+## Recourse and Accountability
+
+Common issue: Systems implemented with no way to identify and address mistakes.
+
+Data contains errors:  
+* Ex: Auditor found babies in database of California gang members.
+* Ex: Credit bureaus found 26% had mistakes in their file.
+
+Technology can be used in unintended ways:
+* Facial recognition developed for adults used with children.
+* NYPD using facial recognition with pics of Woody Harrelson.
+* Abusing confidential databases.
