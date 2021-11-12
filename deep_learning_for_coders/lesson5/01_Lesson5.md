@@ -146,3 +146,16 @@ Humans are biased, so why does algorithmic bias matter?
 Fairness, Accountability and Transparency are important, but they aren't everything.
 * Ex: Being transparent about how to turn old people into mulch.
 
+## Disinformation
+
+* Ex: Russian trolls organized both sides of a protest in Texas.
+* Disinformation includes orchestrated campaigns of manipulation. 
+* Disinformation is an ecosystem. 
+  * Claire Wardle: The Trumpet of Amplification. 
+* Examples:
+  * /r/SubSimulatorGPT2 
+  * Katie Jones on Twitter 
+  * Unicorn story essay 
+  * Thispersondoesnotexist.com 
+* Online discussion may be swamped with fake, manipulative agents. 
+* Disinformation is a cybersecurity problem.
