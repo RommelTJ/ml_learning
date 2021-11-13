@@ -194,3 +194,31 @@ Fairness, Accountability and Transparency are important, but they aren't everyth
   * Other Ethical Lenses
     * Data from a Maori worldview: Taonga, Whakapapa.
 
+## Practices you can implement
+
+Markulla Center Ethics Toolkit.
+
+* Tool 1: Ethical Risk Sweeping
+  * Regularly scheduled ethical risk-sweeping practices.
+    * Treat just as you would cybersecurity penetration testing
+    * Not vulnerabilities found is good news, but don't consider it wasted effort. Keep doing it.
+    * Assume you missed some risks in initial project development.
+    * Reward team members for spotting new ethical risks.
+* Tool 3: Expanding the Ethical Circle
+  * Whose interests, desires, skills, experiences and values have we simply assumed, rather than actually consulted?
+  * Who are all the stakeholders who will be directly affected by our product? How have their interests been protected?
+    How do we know what their interests really are? Have we asked?
+  * Who/which groups and individuals will be indirectly affected in significant ways?
+  * Who might use this product that we didn't expect to use it, or for purposed we didn't initially intend?
+  * Ex: Diverse Voices, University of Washington, Tech Policy Lab. 
+    * Guide on how to organize panels on new technology.
+* Tool 6: Think about the terrible people
+  * Who will want to abuse, steal, misinterpret, hack, destroy, or weaponize what we built?
+  * Who will use it with alarming stupidity/irrationality?
+  * What rewards/incentives/openings has our design inadvertently created for those people?
+  * How can we remove those rewards/incentives?
+* Tool 7: Closing the loop. Ethical Feedback and Iteration.
+  * Remember that ethical design/engineering is never a finished task.
+  * Identify feedback channels that will deliver reliable data on ethical impact.
+  * Integrate the process with quality management and user support.
+  * Develop formal procedures and chains of responsibility for ethical iteration.
