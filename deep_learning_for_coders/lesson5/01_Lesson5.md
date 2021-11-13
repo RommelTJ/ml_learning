@@ -222,3 +222,24 @@ Markulla Center Ethics Toolkit.
   * Identify feedback channels that will deliver reliable data on ethical impact.
   * Integrate the process with quality management and user support.
   * Develop formal procedures and chains of responsibility for ethical iteration.
+
+## Diversity
+
+Only 12% of machine learning researchers are women.
+
+To increase diversity, start at the opposite end of the pipeline in the workplace.
+* 41% of women working in tech end up leaving (compared to 17% of men).
+* Increasing the pipeline doesn't solve the problem of people leaving. 
+* Women leave the tech industry because they are treated unfairly, underpaid, less likely to be fast-tracked than 
+  their male colleagues, and unable to advance.
+* Interviews with 60 women of color who work in STEM research - 100% had experienced discrimination, particular
+  stereotypes varied by race.
+* Study found that men's voices are perceived more persuasive than women's voices.
+* Women receive more vague feedback and personality criticism in performance evaluations. Men receive actionable advice
+  tied to business outcomes.
+* When women receive mentorship, it's advice on how they should change and gain more self-knowledge. When men receive
+  mentorship, it's public endorsement of their authority.
+
+Tech interviews are terrible.
+* The types of programmers that each company looks for often have little to do with what the company needs.
+  * It's often a reflection of company culture and the backgrounds of the founders. 
