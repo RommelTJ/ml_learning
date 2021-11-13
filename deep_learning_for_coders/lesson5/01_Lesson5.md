@@ -159,3 +159,38 @@ Fairness, Accountability and Transparency are important, but they aren't everyth
   * Thispersondoesnotexist.com 
 * Online discussion may be swamped with fake, manipulative agents. 
 * Disinformation is a cybersecurity problem.
+
+## Ethical Foundations
+
+* Utilitarianism: The good to be maximized.
+* Deontological Ethics: Adhering to the right.
+* Virtue Ethics: Living by a code of honor.
+
+* Deontological Questions for Technology
+  * What rights of others and duties to others must we respect?
+  * How might the dignity and autonomy of each stakeholder be impacted by this project?
+  * What consideration of trust and of justic are relevant to this design/project?
+  * Does this project involve any conflicting moral duties to others, or conflicting stakeholder rights? How can we prioritize these?
+
+* Consequentalist Questions
+  * Who will be directly affected by this project? Who will be indirectly affected?
+  * Will the effects in aggregate likely create more good than harm, and what types of good and harm?
+  * Are we thinking about all relevant types of harm/benefit (psychological, political, environmental, moral,
+    cognitive, emotional, institutional, cultural)?
+  * Do the risks of harm from this project fall disproportionally on the least powerful in society?
+  * Have we adequately considered 'dual-use'?
+
+* Five Ethical Lenses
+  * The Rights Approach
+    * Which option best respects the rights of all who have a stake?
+  * The Justice Approach
+    * Which option treats people equally or proportionately?
+  * The Utilitarian Approach
+    * Which option will produce the most good and do the least harm?
+  * The Common Good Approach
+    * Which option best serves the community as a whole, not just some members?
+  * The Virtue Approach
+    * Which option leads me to act as the sort of person I want to be?
+  * Other Ethical Lenses
+    * Data from a Maori worldview: Taonga, Whakapapa.
+
