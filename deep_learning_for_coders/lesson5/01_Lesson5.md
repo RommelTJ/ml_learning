@@ -243,3 +243,29 @@ To increase diversity, start at the opposite end of the pipeline in the workplac
 Tech interviews are terrible.
 * The types of programmers that each company looks for often have little to do with what the company needs.
   * It's often a reflection of company culture and the backgrounds of the founders. 
+
+## Policy
+
+Facebook played a role in the Rohingya genocide, Myanmar, and other atrocities.
+
+As a result of German legislation, Facebook hired 1,200 employees to check ethical behavior. Myanmar had no threat, so
+only dozens were hired.
+
+Policy is the appropriate tool for addressing:
+* negative externalities
+* misaligned economic incentives
+* race to the bottom situations
+* enforcing accountability
+
+Ethical behavior in industry is necessary as well:
+* Laws will not always keep up.
+* Edge cases arise.
+
+Many AI ethics concerns are about human rights.
+* Housing, education, employment, criminal justice, voting, and medical care. 
+* We need to safeguard human rights with thoughtful laws.
+
+Regulation can be very effective:
+* Datasheets for Datasets
+* Regulation in early car design. Collapsible steering columns, sharp knobs, seatbelts.
+* Environmental protections
