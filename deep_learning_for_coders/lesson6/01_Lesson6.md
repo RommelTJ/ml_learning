@@ -57,6 +57,90 @@ NVIDIA GPUs have "tensor cores" which can dramatically speed up things.
 But it doesn't always get better! Using resnet50 resulted in the same 5.5% error rate.
 
 ## Multi-label classification
+
+Example: Images with multiple bicycles, car, persons.
+```
+from fastai.vision.all import *
+path = untar_data(URLs.PASCAL_2007)
+df = pd.read_csv(path/'train.csv')
+df.head()
+```
+
+Pandas is a library used to create data for DataFrames (in our case). 
+* You can assess rows and columns of a DataFrame with the `iloc` property
+  * `df.iloc[:,0]` means every row, 0th column.
+  * `df.iloc[0,:]` means 0th row, every column.
+* You can grab a column by name by indexing into a DataFrame
+  * `df['fname']`
+* You can create new columns and do calculations using columns
+  * `tmp_df = pd.DataFrame({'a':[1,2], 'b':[3,4]})` creates a new DataFrame
+  * `tmp_df['c'] = tmp_df['a']+tmp_df['b']` is adding two columns.
+* It has a confusing API. Python for Data Analysis by Wes McKinney.
+
+
+Constructing a DataBlock
+```
+dblock = DataBlock()
+dsets = dblock.datasets(df)
+len(dsets.train),len(dsets.valid)
+dblock = DataBlock(get_x = lambda r: r['fname'], get_y = lambda r: r['labels'])
+dsets = dblock.datasets(df)
+dsets.train[0]
+
+def get_x(r): return r['fname']
+def get_y(r): return r['labels']
+dblock = DataBlock(get_x = get_x, get_y = get_y)
+dsets = dblock.datasets(df)
+dsets.train[0]
+
+def get_x(r): return path/'train'/r['fname']
+def get_y(r): return r['labels'].split(' ')
+dblock = DataBlock(get_x = get_x, get_y = get_y)
+dsets = dblock.datasets(df)
+dsets.train[0]
+
+dblock = DataBlock(blocks=(ImageBlock, MultiCategoryBlock),
+                   get_x = get_x, get_y = get_y)
+dsets = dblock.datasets(df)
+dsets.train[0]
+
+idxs = torch.where(dsets.train[0][1]==1.)[0]
+dsets.train.vocab[idxs]
+
+def splitter(df):
+    train = df.index[~df['is_valid']].tolist()
+    valid = df.index[df['is_valid']].tolist()
+    return train,valid
+
+dblock = DataBlock(blocks=(ImageBlock, MultiCategoryBlock),
+                   splitter=splitter,
+                   get_x=get_x, 
+                   get_y=get_y)
+
+dsets = dblock.datasets(df)
+dsets.train[0]
+
+dblock = DataBlock(blocks=(ImageBlock, MultiCategoryBlock),
+                   splitter=splitter,
+                   get_x=get_x, 
+                   get_y=get_y,
+                   item_tfms = RandomResizedCrop(128, min_scale=0.35))
+dls = dblock.dataloaders(df)
+dls.show_batch(nrows=1, ncols=3)
+```
+
+* Dataset
+  * A collection which returns a tuple of your independent and dependent variable for a single item
+* Datasets
+  * An object which contains a training Dataset and a validation Dataset
+* DataLoader
+  * An iterator which provides a stream of mini batches, where each mini batch is a couple of a batch of independent 
+    variables and a batch of dependent variables.
+
+Python Tip:
+* Shortcut in zip: `zip(*b)`, means insert into zip every element of variable b.
+* In practice, it's used to transpose something from one orientation to another.
+
 ## One hot encoding
 ## Regression
 ## Embedding
