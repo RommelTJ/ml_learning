@@ -142,6 +142,81 @@ Python Tip:
 * In practice, it's used to transpose something from one orientation to another.
 
 ## One hot encoding
+
+Since we have multiple categories, there will be zeros in most categories, and 1s for the present ones. This is called
+"one hot encoding" and it allows us to use tensors which require items to be of the same length.
+
+* One hot encoding
+  * Using a vector of zeros, with a one in each location that is represented in the data, to encode a list of integers.
+
+```
+idxs = torch.where(dsets.train[0][1]==1.)[0]
+dsets.train.vocab[idxs]
+```
+
+```
+def splitter(df):
+    train = df.index[~df['is_valid']].tolist()
+    valid = df.index[df['is_valid']].tolist()
+    return train,valid
+
+dblock = DataBlock(blocks=(ImageBlock, MultiCategoryBlock),
+                   splitter=splitter,
+                   get_x=get_x, 
+                   get_y=get_y)
+
+dsets = dblock.datasets(df)
+dsets.train[0]
+```
+
+```
+dblock = DataBlock(blocks=(ImageBlock, MultiCategoryBlock),
+                   splitter=splitter,
+                   get_x=get_x, 
+                   get_y=get_y,
+                   item_tfms = RandomResizedCrop(128, min_scale=0.35))
+dls = dblock.dataloaders(df)
+dls.show_batch(nrows=1, ncols=3)
+```
+
+Binary cross entropy
+* Create a learner
+  * `learn = cnn_learner(dls, resnet18)`
+* Train batch of data
+  * `x,y = to_cpu(dls.train.one_batch())`
+  * `activs = learn.model(x)`
+  * `activs.shape`
+* Define binary cross entropy
+```
+def binary_cross_entropy(inputs, targets):
+    inputs = inputs.sigmoid()
+    return -torch.where(targets==1, inputs, 1-inputs).log().mean()
+```
+  * Identical to mnist loss but takes log and mean.
+  * Or using fastAI
+```
+loss_func = nn.BCEWithLogitsLoss()
+loss = loss_func(activs, y)
+```
+
+```
+learn = cnn_learner(dls, resnet50, metrics=partial(accuracy_multi, thresh=0.2))
+learn.fine_tune(3, base_lr=3e-3, freeze_epochs=4)
+
+learn.metrics = partial(accuracy_multi, thresh=0.1)
+learn.validate()
+
+learn.metrics = partial(accuracy_multi, thresh=0.99)
+learn.validate()
+
+preds,targs = learn.get_preds()
+accuracy_multi(preds, targs, thresh=0.9, sigmoid=False)
+
+xs = torch.linspace(0.05,0.95,29)
+accs = [accuracy_multi(preds, targs, thresh=i, sigmoid=False) for i in xs]
+plt.plot(xs,accs);
+```
+
 ## Regression
 ## Embedding
 ## Collaborative filtering from scratch
