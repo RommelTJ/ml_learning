@@ -309,5 +309,14 @@ user_factors[3]
 ```
 
 ## Embedding
+
+Embedding layer
+* Multiplying by a one hot encoded matrix, using the computational shortcut that it can be implemented by simply 
+  indexing directly.
+* The thing that you multiply the one hot encoded matrix by (or, using the computation shortcut, index into directly)
+  is called the embedding matrix.
+
+Most deep learning libraries, including PyTorch, support embedding.
+
 ## Collaborative filtering from scratch
 ## Regularisation (Data augmentation for regression)
