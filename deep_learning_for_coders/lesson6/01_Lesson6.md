@@ -319,4 +319,60 @@ Embedding layer
 Most deep learning libraries, including PyTorch, support embedding.
 
 ## Collaborative filtering from scratch
+
+```
+class DotProduct(Module):
+    def __init__(self, n_users, n_movies, n_factors):
+        self.user_factors = Embedding(n_users, n_factors)
+        self.movie_factors = Embedding(n_movies, n_factors)
+        
+    def forward(self, x):
+        users = self.user_factors(x[:,0])
+        movies = self.movie_factors(x[:,1])
+        return (users * movies).sum(dim=1)
+        
+x,y = dls.one_batch()
+model = DotProduct(n_users, n_movies, 50)
+learn = Learner(dls, model, loss_func=MSELossFlat())
+learn.fit_one_cycle(5, 5e-3)
+```
+
+```
+class DotProduct(Module):
+    def __init__(self, n_users, n_movies, n_factors, y_range=(0,5.5)):
+        self.user_factors = Embedding(n_users, n_factors)
+        self.movie_factors = Embedding(n_movies, n_factors)
+        self.y_range = y_range
+        
+    def forward(self, x):
+        users = self.user_factors(x[:,0])
+        movies = self.movie_factors(x[:,1])
+        return sigmoid_range((users * movies).sum(dim=1), *self.y_range)
+
+model = DotProduct(n_users, n_movies, 50)
+learn = Learner(dls, model, loss_func=MSELossFlat())
+learn.fit_one_cycle(5, 5e-3)
+```
+
+```
+class DotProductBias(Module):
+    def __init__(self, n_users, n_movies, n_factors, y_range=(0,5.5)):
+        self.user_factors = Embedding(n_users, n_factors)
+        self.user_bias = Embedding(n_users, 1)
+        self.movie_factors = Embedding(n_movies, n_factors)
+        self.movie_bias = Embedding(n_movies, 1)
+        self.y_range = y_range
+        
+    def forward(self, x):
+        users = self.user_factors(x[:,0])
+        movies = self.movie_factors(x[:,1])
+        res = (users * movies).sum(dim=1, keepdim=True)
+        res += self.user_bias(x[:,0]) + self.movie_bias(x[:,1])
+        return sigmoid_range(res, *self.y_range)
+
+model = DotProductBias(n_users, n_movies, 50)
+learn = Learner(dls, model, loss_func=MSELossFlat())
+learn.fit_one_cycle(5, 5e-3)
+```
+
 ## Regularisation (Data augmentation for regression)
