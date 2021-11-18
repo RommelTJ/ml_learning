@@ -376,3 +376,5 @@ learn.fit_one_cycle(5, 5e-3)
 ```
 
 ## Regularisation (Data augmentation for regression)
+
+Train more epochs without overfitting. Set of techniques. Penalize if overfitting. Next lesson.
