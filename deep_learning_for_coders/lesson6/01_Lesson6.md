@@ -269,6 +269,45 @@ dls learns using a sigmoid range function.
 
 We fine-tuned an image classification model to an image regression model.
 
+## Collaborative Filtering
+
+We can recommend movies if we know what you liked in the past. These can be figured out via concepts like what 
+kind of movie it is and so on. These are called latent factors. Nobody necessarily wrote them down or communicated them.
+
+Using MovieLens data set.
+
+Outside of recommender systems, collaborative filtering might be used whenever you want to learn from past behavior.
+
+```
+from fastai.collab import *
+from fastai.tabular.all import *
+path = untar_data(URLs.ML_100k)
+
+ratings = pd.read_csv(path/'u.data', delimiter='\t', header=None, names=['user','movie','rating','timestamp'])
+last_skywalker = np.array([0.98,0.9,-0.9])
+user1 = np.array([0.9,0.8,-0.6])
+(user1*last_skywalker).sum()
+casablanca = np.array([-0.99,-0.3,0.8])
+(user1*casablanca).sum()
+
+movies = pd.read_csv(path/'u.item',  delimiter='|', encoding='latin-1', 
+                     usecols=(0,1), names=('movie','title'), header=None)
+ratings = ratings.merge(movies)
+dls = CollabDataLoaders.from_df(ratings, item_name='title', bs=64)
+dls.classes
+
+n_users  = len(dls.classes['user'])
+n_movies = len(dls.classes['title'])
+n_factors = 5
+
+user_factors = torch.randn(n_users, n_factors)
+movie_factors = torch.randn(n_movies, n_factors)
+
+one_hot_3 = one_hot(3, n_users).float()
+user_factors.t() @ one_hot_3
+user_factors[3]
+```
+
 ## Embedding
 ## Collaborative filtering from scratch
 ## Regularisation (Data augmentation for regression)
