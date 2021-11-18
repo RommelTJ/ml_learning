@@ -1,6 +1,6 @@
 # Machine Learning Notes 
 
-Version: 0.0.6 - 13 Nov 2021
+Version: 0.0.7 - 17 Nov 2021
 
 ## Description
 
