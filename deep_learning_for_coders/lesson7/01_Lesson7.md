@@ -120,6 +120,10 @@ class EmbeddingNN(TabularModel):
 ```
 
 ## Notebook 9 - Tabular modelling
+
+Embeddings for any kind of categorical variable. It can handle any kind of discrete categorical data. 
+Something like "sex", "post code", etc. Something with cardinality.
+
 ## entity embeddings for categorical variables
 ## Beyond deep learning for tabular data (ensembles of decision trees)
 ## Decision Trees
