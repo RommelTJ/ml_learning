@@ -76,6 +76,17 @@ idxs = movie_bias.argsort(descending=True)[:5]
 ```
 
 ## Embedding distance
+
+We can find the embedding distances between movies. This helps us find the similarity between movies.
+
+```
+movie_factors = learn.model.i_weight.weight
+idx = dls.classes['title'].o2i['Silence of the Lambs, The (1991)']
+distances = nn.CosineSimilarity(dim=1)(movie_factors, movie_factors[idx][None])
+idx = distances.argsort(descending=True)[1]
+dls.classes['title'][idx]
+```
+
 ## Deep learning for collaborative filtering
 ## Notebook 9 - Tabular modelling
 ## entity embeddings for categorical variables
