@@ -125,6 +125,9 @@ Embeddings for any kind of categorical variable. It can handle any kind of discr
 Something like "sex", "post code", etc. Something with cardinality.
 
 ## Entity embeddings for categorical variables
+
+Kaggle competitions to determine embedding distance. Recommendation system in Google Play.
+
 ## Beyond deep learning for tabular data (ensembles of decision trees)
 ## Decision Trees
 ## Random Forests
