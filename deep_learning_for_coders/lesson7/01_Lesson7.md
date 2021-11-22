@@ -43,6 +43,38 @@ learn.fit_one_cycle(5, 5e-3, wd=0.1)
 ```
 
 ## Interpreting embeddings and bias
+
+```
+movie_bias = learn.model.movie_bias.squeeze()
+idxs = movie_bias.argsort()[:5]
+
+idxs = movie_bias.argsort(descending=True)[:5]
+
+g = ratings.groupby('title')['rating'].count()
+top_movies = g.sort_values(ascending=False).index.values[:1000]
+top_idxs = tensor([learn.dls.classes['title'].o2i[m] for m in top_movies])
+movie_w = learn.model.movie_factors[top_idxs].cpu().detach()
+movie_pca = movie_w.pca(3)
+fac0,fac1,fac2 = movie_pca.t()
+idxs = list(range(50))
+X = fac0[idxs]
+Y = fac2[idxs]
+plt.figure(figsize=(12,12))
+plt.scatter(X, Y)
+for i, x, y in zip(top_movies[idxs], X, Y):
+    plt.text(x,y,i, color=np.random.rand(3)*0.7, fontsize=11)
+plt.show()
+```
+
+Using fastai.collab: 
+```
+learn = collab_learner(dls, n_factors=50, y_range=(0, 5.5))
+learn.fit_one_cycle(5, 5e-3, wd=0.1)
+
+movie_bias = learn.model.i_bias.weight.squeeze()
+idxs = movie_bias.argsort(descending=True)[:5]
+```
+
 ## Embedding distance
 ## Deep learning for collaborative filtering
 ## Notebook 9 - Tabular modelling
