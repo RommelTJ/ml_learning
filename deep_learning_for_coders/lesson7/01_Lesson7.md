@@ -124,13 +124,13 @@ class EmbeddingNN(TabularModel):
 Embeddings for any kind of categorical variable. It can handle any kind of discrete categorical data. 
 Something like "sex", "post code", etc. Something with cardinality.
 
-## entity embeddings for categorical variables
+## Entity embeddings for categorical variables
 ## Beyond deep learning for tabular data (ensembles of decision trees)
 ## Decision Trees
 ## Random Forests
 ## Out-of-bag error
 ## Model Interpretation
-## extrapolation
-## using a NN
+## Extrapolation
+## Using a NN
 ## Ensembling
 ## Conclusion
