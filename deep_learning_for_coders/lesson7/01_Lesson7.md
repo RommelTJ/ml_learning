@@ -129,6 +129,50 @@ Something like "sex", "post code", etc. Something with cardinality.
 Kaggle competitions to determine embedding distance. Recommendation system in Google Play.
 
 ## Beyond deep learning for tabular data (ensembles of decision trees)
+
+The idea of deep learning as a best practice for tabular data is new and controversial. Without it, we would be using 
+an ensemble of decision trees (Random Forests or Gradient Boosting Machines).
+
+Ensemble of Decision Trees are easier to interpret, do not require GPU hardware, and require less hyperparameter tuning.
+They should be our first approach for analysing a new tabular dataset, except when there is too high cardinality 
+variables or when there are columns which contain data which would be best understood with a neural network, such
+as plaintext data.
+
+PyTorch is bad for this. Use SciKit-Learn (sklearn).
+
+We'll use the "Blue Book for Bulldozers" dataset from a Kaggle competition.
+
+```
+creds = 'YOUR_KAGGLE_CREDS'
+
+cred_path = Path('~/.kaggle/kaggle.json').expanduser()
+if not cred_path.exists():
+    cred_path.parent.mkdir(exist_ok=True)
+    cred_path.write_text(creds)
+    cred_path.chmod(0o600)
+    
+path = URLs.path('bluebook')
+Path.BASE_PATH = path
+
+if not path.exists():
+    path.mkdir(parents=true)
+    api.competition_download_cli('bluebook-for-bulldozers', path=path)
+    file_extract(path/'bluebook-for-bulldozers.zip')
+
+path.ls(file_type='text')
+```
+
+```
+df = pd.read_csv(path/'TrainAndValid.csv', low_memory=False)
+df.columns
+df['ProductSize'].unique()
+sizes = 'Large','Large / Medium','Medium','Small','Mini','Compact'
+df['ProductSize'] = df['ProductSize'].astype('category')
+df['ProductSize'].cat.set_categories(sizes, ordered=True, inplace=True)
+dep_var = 'SalePrice'
+df[dep_var] = np.log(df[dep_var])
+```
+
 ## Decision Trees
 ## Random Forests
 ## Out-of-bag error
