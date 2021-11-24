@@ -174,6 +174,89 @@ df[dep_var] = np.log(df[dep_var])
 ```
 
 ## Decision Trees
+
+A decision tree asks a series of binary questions about data.
+
+Handling Dates
+```
+df = add_datepart(df, 'saledate')
+df_test = pd.read_csv(path/'Test.csv', low_memory=False)
+df_test = add_datepart(df_test, 'saledate')
+' '.join(o for o in df.columns if o.startswith('sale'))
+```
+
+Using TabularPandas and TabularProc
+```
+procs = [Categorify, FillMissing]
+
+cond = (df.saleYear<2011) | (df.saleMonth<10)
+train_idx = np.where( cond)[0]
+valid_idx = np.where(~cond)[0]
+
+splits = (list(train_idx),list(valid_idx))
+
+cont,cat = cont_cat_split(df, 1, dep_var=dep_var)
+
+to = TabularPandas(df, procs, cat, cont, y_names=dep_var, splits=splits)
+len(to.train),len(to.valid)
+
+to.show(3)
+
+to1 = TabularPandas(df, procs, ['state', 'ProductGroup', 'Drive_System', 'Enclosure'], [], y_names=dep_var, splits=splits)
+to1.show(3)
+
+to.items.head(3)
+
+to1.items[['state', 'ProductGroup', 'Drive_System', 'Enclosure']].head(3)
+
+to.classes['ProductSize']
+
+save_pickle(path/'to.pkl',to)
+```
+
+Creating the Decision Tree
+```
+to = load_pickle(path/'to.pkl')
+
+xs,y = to.train.xs,to.train.y
+valid_xs,valid_y = to.valid.xs,to.valid.y
+
+m = DecisionTreeRegressor(max_leaf_nodes=4)
+m.fit(xs, y);
+
+draw_tree(m, xs, size=10, leaves_parallel=True, precision=2)
+
+samp_idx = np.random.permutation(len(y))[:500]
+dtreeviz(m, xs.iloc[samp_idx], y.iloc[samp_idx], xs.columns, dep_var,
+        fontname='DejaVu Sans', scale=1.6, label_fontsize=10,
+        orientation='LR')
+
+xs.loc[xs['YearMade']<1900, 'YearMade'] = 1950
+valid_xs.loc[valid_xs['YearMade']<1900, 'YearMade'] = 1950
+
+m = DecisionTreeRegressor(max_leaf_nodes=4).fit(xs, y)
+
+dtreeviz(m, xs.iloc[samp_idx], y.iloc[samp_idx], xs.columns, dep_var,
+        fontname='DejaVu Sans', scale=1.6, label_fontsize=10,
+        orientation='LR')
+
+m = DecisionTreeRegressor()
+m.fit(xs, y);
+
+def r_mse(pred,y): return round(math.sqrt(((pred-y)**2).mean()), 6)
+def m_rmse(m, xs, y): return r_mse(m.predict(xs), y)
+
+m_rmse(m, xs, y)
+m_rmse(m, valid_xs, valid_y)
+m.get_n_leaves(), len(xs)
+
+m = DecisionTreeRegressor(min_samples_leaf=25)
+m.fit(to.train.xs, to.train.y)
+m_rmse(m, xs, y), m_rmse(m, valid_xs, valid_y)
+
+m.get_n_leaves()
+```
+
 ## Random Forests
 ## Out-of-bag error
 ## Model Interpretation
