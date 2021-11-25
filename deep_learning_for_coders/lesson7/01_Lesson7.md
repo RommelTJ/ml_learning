@@ -258,6 +258,25 @@ m.get_n_leaves()
 ```
 
 ## Random Forests
+
+Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated 
+predictor. 
+
+Creating a Random Forest:
+```
+def rf(xs, y, n_estimators=40, max_samples=200_000,
+       max_features=0.5, min_samples_leaf=5, **kwargs):
+    return RandomForestRegressor(n_jobs=-1, n_estimators=n_estimators,
+        max_samples=max_samples, max_features=max_features,
+        min_samples_leaf=min_samples_leaf, oob_score=True).fit(xs, y)
+        
+m = rf(xs, y)
+m_rmse(m, xs, y), m_rmse(m, valid_xs, valid_y)
+preds = np.stack([t.predict(valid_xs) for t in m.estimators_])
+r_mse(preds.mean(0), valid_y)
+plt.plot([r_mse(preds[:i+1].mean(0), valid_y) for i in range(40)]);
+```
+
 ## Out-of-bag error
 ## Model Interpretation
 ## Extrapolation
