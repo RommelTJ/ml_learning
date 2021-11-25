@@ -278,6 +278,15 @@ plt.plot([r_mse(preds[:i+1].mean(0), valid_y) for i in range(40)]);
 ```
 
 ## Out-of-bag error
+
+OOB error is looking at each row, we say which trees included this row in the training. Just calculate the error for 
+that row without including that tree. This is like giving a validation set results without actually needing a 
+validation set. Tells us how much of the error is due to overfitting.
+
+```
+r_mse(m.oob_prediction_, y)
+```
+
 ## Model Interpretation
 ## Extrapolation
 ## Using a NN
