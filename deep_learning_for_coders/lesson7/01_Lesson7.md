@@ -288,6 +288,111 @@ r_mse(m.oob_prediction_, y)
 ```
 
 ## Model Interpretation
+
+Tree Variance for Prediction Confidence
+```
+preds = np.stack([t.predict(valid_xs) for t in m.estimators_])
+preds.shape
+preds_std = preds.std(0)
+preds_std[:5]
+```
+
+Feature Importance
+```
+def rf_feat_importance(m, df):
+    return pd.DataFrame({'cols':df.columns, 'imp':m.feature_importances_}
+                       ).sort_values('imp', ascending=False)
+
+fi = rf_feat_importance(m, xs)
+fi[:10]
+
+def plot_fi(fi):
+    return fi.plot('cols', 'imp', 'barh', figsize=(12,7), legend=False)
+
+plot_fi(fi[:30]);
+```
+
+Removing Low-Importance Variables
+```
+to_keep = fi[fi.imp>0.005].cols
+
+xs_imp = xs[to_keep]
+valid_xs_imp = valid_xs[to_keep]
+
+m = rf(xs_imp, y)
+m_rmse(m, xs_imp, y), m_rmse(m, valid_xs_imp, valid_y)
+
+len(xs.columns), len(xs_imp.columns)
+
+plot_fi(rf_feat_importance(m, xs_imp));
+```
+
+Removing Redundant Features
+```
+cluster_columns(xs_imp)
+
+def get_oob(df):
+    m = RandomForestRegressor(n_estimators=40, min_samples_leaf=15,
+        max_samples=50000, max_features=0.5, n_jobs=-1, oob_score=True)
+    m.fit(df, y)
+    return m.oob_score_
+
+get_oob(xs_imp)
+{c:get_oob(xs_imp.drop(c, axis=1)) for c in (
+    'saleYear', 'saleElapsed', 'ProductGroupDesc','ProductGroup',
+    'fiModelDesc', 'fiBaseModel',
+    'Hydraulics_Flow','Grouser_Tracks', 'Coupler_System')}
+    
+to_drop = ['saleYear', 'ProductGroupDesc', 'fiBaseModel', 'Grouser_Tracks']
+get_oob(xs_imp.drop(to_drop, axis=1))
+
+xs_final = xs_imp.drop(to_drop, axis=1)
+valid_xs_final = valid_xs_imp.drop(to_drop, axis=1)
+
+save_pickle(path/'xs_final.pkl', xs_final)
+save_pickle(path/'valid_xs_final.pkl', valid_xs_final)
+
+xs_final = load_pickle(path/'xs_final.pkl')
+valid_xs_final = load_pickle(path/'valid_xs_final.pkl')
+
+m = rf(xs_final, y)
+m_rmse(m, xs_final, y), m_rmse(m, valid_xs_final, valid_y)
+```
+
+Partial Dependence
+```
+p = valid_xs_final['ProductSize'].value_counts(sort=False).plot.barh()
+c = to.classes['ProductSize']
+plt.yticks(range(len(c)), c);
+
+ax = valid_xs_final['YearMade'].hist()
+
+from sklearn.inspection import plot_partial_dependence
+
+fig,ax = plt.subplots(figsize=(12, 4))
+plot_partial_dependence(m, valid_xs_final, ['YearMade','ProductSize'],
+                        grid_resolution=20, ax=ax);
+```
+
+Data Leakage
+
+Tree Interpreter
+```
+#hide
+import warnings
+warnings.simplefilter('ignore', FutureWarning)
+
+from treeinterpreter import treeinterpreter
+from waterfall_chart import plot as waterfall
+
+row = valid_xs_final.iloc[:5]
+prediction,bias,contributions = treeinterpreter.predict(m, row.values)
+prediction[0], bias[0], contributions[0].sum()
+
+waterfall(valid_xs_final.columns, contributions[0], threshold=0.08, 
+          rotation_value=45,formatting='{:,.3f}');
+```
+
 ## Extrapolation
 ## Using a NN
 ## Ensembling
