@@ -456,6 +456,46 @@ m = rf(xs_filt, y_filt)
 m_rmse(m, xs_filt, y_filt), m_rmse(m, valid_xs_time, valid_y)
 ```
 
-## Using a NN
+## Using a Neural Network
+
+```
+df_nn = pd.read_csv(path/'TrainAndValid.csv', low_memory=False)
+df_nn['ProductSize'] = df_nn['ProductSize'].astype('category')
+df_nn['ProductSize'].cat.set_categories(sizes, ordered=True, inplace=True)
+df_nn[dep_var] = np.log(df_nn[dep_var])
+df_nn = add_datepart(df_nn, 'saledate')
+
+df_nn_final = df_nn[list(xs_final_time.columns) + [dep_var]]
+cont_nn,cat_nn = cont_cat_split(df_nn_final, max_card=9000, dep_var=dep_var)
+cont_nn
+
+df_nn_final[cat_nn].nunique()
+
+xs_filt2 = xs_filt.drop('fiModelDescriptor', axis=1)
+valid_xs_time2 = valid_xs_time.drop('fiModelDescriptor', axis=1)
+m2 = rf(xs_filt2, y_filt)
+m_rmse(m2, xs_filt2, y_filt), m_rmse(m2, valid_xs_time2, valid_y)
+
+cat_nn.remove('fiModelDescriptor')
+
+procs_nn = [Categorify, FillMissing, Normalize]
+to_nn = TabularPandas(df_nn_final, procs_nn, cat_nn, cont_nn,
+                      splits=splits, y_names=dep_var)
+                      
+dls = to_nn.dataloaders(1024)
+
+y = to_nn.train.y
+y.min(),y.max()
+
+learn = tabular_learner(dls, y_range=(8,12), layers=[500,250],
+                        n_out=1, loss_func=F.mse_loss)
+learn.lr_find()
+learn.fit_one_cycle(5, 1e-2)
+
+preds,targs = learn.get_preds()
+r_mse(preds,targs)
+learn.save('nn')
+```
+
 ## Ensembling
 ## Conclusion
