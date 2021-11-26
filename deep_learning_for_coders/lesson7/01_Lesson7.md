@@ -498,4 +498,21 @@ learn.save('nn')
 ```
 
 ## Ensembling
+
+One way to improve things is to use an ensemble. Average the random forest prediction and the neural network prediction.
+
+```
+rf_preds = m.predict(valid_xs_time)
+ens_preds = (to_np(preds.squeeze()) + rf_preds) /2
+r_mse(ens_preds,valid_y)
+```
+
+Boosting works by training a small model which under fits your dataset, calculate the predictions in the training
+set for this model, subtract the predictions from our targets; these are called residuals. 
+Repeat until a target gets hit.
+
+The most popular booster is XGBoost.
+
+Combining embeddings with other methods can improve mean average percent error.
+
 ## Conclusion
