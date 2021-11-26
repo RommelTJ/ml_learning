@@ -516,3 +516,23 @@ The most popular booster is XGBoost.
 Combining embeddings with other methods can improve mean average percent error.
 
 ## Conclusion
+
+Random Forests
+* Easiest to train
+* Resilient to hyperparameter choices
+* Require very little preprocessing.
+* Fast to train and should not overfit if you have enough trees.
+* Can be less accurate, especially if extrapolation is required, such as predicting future time periods.
+
+Gradient Boosting Machines
+* In theory just as fast to train as random forests.
+* In practice you will have to try many different hyperparameters.
+* They can overfit.
+* Can be a little bit more accurate than random forests.
+
+Neural Networks
+* Take the longest to train.
+* Require extra preprocessing such as normalisation.
+* They can provide great results and extrapolate well, but only if you are careful and avoid overfitting.
+
+We suggest starting your analysis with a random forest to get a baseline.
