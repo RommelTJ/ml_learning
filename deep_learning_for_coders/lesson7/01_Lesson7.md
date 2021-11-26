@@ -394,6 +394,68 @@ waterfall(valid_xs_final.columns, contributions[0], threshold=0.08,
 ```
 
 ## Extrapolation
+
+Create 40 random data points:  
+```
+np.random.seed(42)
+x_lin = torch.linspace(0,20, steps=40)
+y_lin = x_lin + torch.randn_like(x_lin)
+plt.scatter(x_lin, y_lin);
+```
+
+To get it to work in SciKit Learn:  
+```
+xs_lin = x_lin.unsqueeze(1)
+x_lin.shape,xs_lin.shape
+```
+
+A more flexible approach:  
+```
+x_lin[:,None].shape
+```
+
+We can create a random forest and make a prediction:  
+```
+m_lin = RandomForestRegressor().fit(xs_lin[:30],y_lin[:30])
+plt.scatter(x_lin, y_lin, 20)
+plt.scatter(x_lin, m_lin.predict(xs_lin), color='red', alpha=0.5);
+```
+
+The problem is that predictions outside of our training data are too low. So we need to make sure our validation set
+does not contain out of domain data.
+
+Finding out of domain data
+```
+df_dom = pd.concat([xs_final, valid_xs_final])
+is_valid = np.array([0]*len(xs_final) + [1]*len(valid_xs_final))
+
+m = rf(df_dom, is_valid)
+rf_feat_importance(m, df_dom)[:6]
+
+m = rf(xs_final, y)
+print('orig', m_rmse(m, valid_xs_final, valid_y))
+
+for c in ('SalesID','saleElapsed','MachineID'):
+    m = rf(xs_final.drop(c,axis=1), y)
+    print(c, m_rmse(m, valid_xs_final.drop(c,axis=1), valid_y))
+    
+time_vars = ['SalesID','MachineID']
+xs_final_time = xs_final.drop(time_vars, axis=1)
+valid_xs_time = valid_xs_final.drop(time_vars, axis=1)
+
+m = rf(xs_final_time, y)
+m_rmse(m, valid_xs_time, valid_y)
+
+xs['saleYear'].hist();
+
+filt = xs['saleYear']>2004
+xs_filt = xs_final_time[filt]
+y_filt = y[filt]
+
+m = rf(xs_filt, y_filt)
+m_rmse(m, xs_filt, y_filt), m_rmse(m, valid_xs_time, valid_y)
+```
+
 ## Using a NN
 ## Ensembling
 ## Conclusion
