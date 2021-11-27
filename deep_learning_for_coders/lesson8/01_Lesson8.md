@@ -1,6 +1,9 @@
 # Lesson 8
 
 ## Intro and NLP Review
+
+Reminder that we say NLP in lesson 1. See notebook 1.
+
 ## Language models for NLP
 ## Review of text classifier in Lesson 1
 ## Improving results with a domain-specific language model
