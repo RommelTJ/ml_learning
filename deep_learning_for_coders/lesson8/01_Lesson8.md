@@ -25,6 +25,24 @@ Self-supervised learning:
 Rather than just jumping to a classifier, we can create an IMDB language model first then the classifier.
 
 ## Language model from scratch
+
+A word is basically a categorical variable.
+
+1. Make a list of all possible levels of that categorical variable (vocab).
+2. Replace each level with its index in the vocab.
+3. Create an embedding matrix for this containing a row for each level.
+4. Use this embedding matrix as the first layer of a neural network.
+
+Terms: 
+* Tokenization
+  * Convert text into list of words.
+* Numericalization
+  * Make a list of unique words and convert them into a number by looking up its index in the vocab.
+* Language model data loader
+  * Create a data loader. FastAI comes with `LMDataLoader`.
+* Language model
+  * New model that handles input lists which could be arbitrarily big or small. We will use recurrent neural networks.
+
 ## Tokenization
 ## Word tokenizer
 ## Subword tokenizer
