@@ -5,6 +5,15 @@
 Reminder that we say NLP in lesson 1. See notebook 1.
 
 ## Language models for NLP
+
+The pre-trained language model was used to classify IMDB reviews (trained on Wikipedia).
+
+Language models are used to predict the next word of a sentence.
+
+Self-supervised learning: 
+* Training a model using labels that are embedded in the independent variable, rather than requiring external labels.
+* Ex: Training a model to predict the next word of text.
+
 ## Review of text classifier in Lesson 1
 ## Improving results with a domain-specific language model
 ## Language model from scratch
