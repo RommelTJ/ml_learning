@@ -21,6 +21,9 @@ Self-supervised learning:
 * Got 93% accuracy.
 
 ## Improving results with a domain-specific language model
+
+Rather than just jumping to a classifier, we can create an IMDB language model first then the classifier.
+
 ## Language model from scratch
 ## Tokenization
 ## Word tokenizer
