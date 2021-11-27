@@ -15,6 +15,11 @@ Self-supervised learning:
 * Ex: Training a model to predict the next word of text.
 
 ## Review of text classifier in Lesson 1
+
+* Downloaded wikipedia pre-trained model
+* fine-tuned the model
+* Got 93% accuracy.
+
 ## Improving results with a domain-specific language model
 ## Language model from scratch
 ## Tokenization
