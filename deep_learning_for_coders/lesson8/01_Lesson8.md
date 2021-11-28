@@ -307,6 +307,15 @@ nums
 ```
 
 ## Defining a simple language model
+
+```
+L((tokens[i:i+3], tokens[i+3]) for i in range(0,len(tokens)-4,3))
+seqs = L((tensor(nums[i:i+3]), nums[i+3]) for i in range(0,len(nums)-4,3))
+bs = 64
+cut = int(len(seqs) * 0.8)
+dls = DataLoaders.from_dsets(seqs[:cut], seqs[cut:], bs=64, shuffle=False)
+```
+
 ## Question: can you speed up fine-tuning the NLP model?
 ## Simple language model continued
 ## Recurrent neural networks (RNN)
