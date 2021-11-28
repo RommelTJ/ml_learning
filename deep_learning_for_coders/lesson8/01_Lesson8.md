@@ -228,6 +228,9 @@ dls_clas.show_batch(max_n=3)
 ```
 
 ## Question: Is stemming and lemmatisation still used in practice?
+
+No. It's an outdated approach. Word stems tell us something, so we don't remove them. Used to be used pre-deep learning.
+
 ## Handling different sequence lengths
 ## Fine-tuning classifier
 ## Questions
