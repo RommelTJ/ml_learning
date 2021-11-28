@@ -101,6 +101,25 @@ If it's the same language, it's almost always sufficient to use Wikipedia. You d
 models.
 
 ## Numericalization
+
+Make a list of unique words and convert them into a number by looking up its index in the vocab.
+
+```
+toks = tkn(txt)
+print(coll_repr(tkn(txt), 31))
+
+toks200 = txts[:200].map(tkn)
+toks200[0]
+
+num = Numericalize()
+num.setup(toks200)
+coll_repr(num.vocab,20)
+
+nums = num(toks)[:20]; nums
+
+' '.join(num.vocab[o] for o in nums)
+```
+
 ## Creating batches for language model
 ## LMDataLoader
 ## Creating language model data with DataBlock
