@@ -321,6 +321,34 @@ dls = DataLoaders.from_dsets(seqs[:cut], seqs[cut:], bs=64, shuffle=False)
 10+ mins per epoch is tough. You don't normally need to fine-tune that often. Work is more at the classifier stage.
 
 ## Simple language model continued
+
+```
+class LMModel1(Module):
+    def __init__(self, vocab_sz, n_hidden):
+        self.i_h = nn.Embedding(vocab_sz, n_hidden)  
+        self.h_h = nn.Linear(n_hidden, n_hidden)     
+        self.h_o = nn.Linear(n_hidden,vocab_sz)
+        
+    def forward(self, x):
+        h = F.relu(self.h_h(self.i_h(x[:,0])))
+        h = h + self.i_h(x[:,1])
+        h = F.relu(self.h_h(h))
+        h = h + self.i_h(x[:,2])
+        h = F.relu(self.h_h(h))
+        return self.h_o(h)
+        
+learn = Learner(dls, LMModel1(len(vocab), 64), loss_func=F.cross_entropy, 
+                metrics=accuracy)
+learn.fit_one_cycle(4, 1e-3)
+
+n,counts = 0,torch.zeros(len(vocab))
+for x,y in dls.valid:
+    n += y.shape[0]
+    for i in range_of(vocab): counts[i] += (y==i).long().sum()
+idx = torch.argmax(counts)
+idx, vocab[idx.item()], counts[idx].item()/n
+```
+
 ## Recurrent neural networks (RNN)
 ## Improving our RNN
 ## Back propagation through time
