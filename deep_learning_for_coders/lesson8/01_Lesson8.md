@@ -182,6 +182,17 @@ learn.fit_one_cycle(1, 2e-2)
 ```
 
 ## Saving and loading models
+
+```
+learn.save('1epoch')
+learn = learn.load('1epoch')
+
+learn.unfreeze()
+learn.fit_one_cycle(10, 2e-3)
+
+learn.save_encoder('finetuned')
+```
+
 ## Question: Can language models learn meaning?
 ## Text generation with language model
 ## Creating classification model
