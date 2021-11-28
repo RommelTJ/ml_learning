@@ -160,6 +160,18 @@ x.shape,y.shape
 ```
 
 ## Creating language model data with DataBlock
+
+```
+get_imdb = partial(get_text_files, folders=['train', 'test', 'unsup'])
+
+dls_lm = DataBlock(
+    blocks=TextBlock.from_folder(path, is_lm=True),
+    get_items=get_imdb, splitter=RandomSplitter(0.1)
+).dataloaders(path, path=path, bs=128, seq_len=80)
+
+dls_lm.show_batch(max_n=2)
+```
+
 ## Fine-tuning a language model
 ## Saving and loading models
 ## Question: Can language models learn meaning?
