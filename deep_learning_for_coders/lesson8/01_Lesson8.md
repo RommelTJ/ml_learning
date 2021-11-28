@@ -215,6 +215,18 @@ i liked this movie because it was an adaptation of the novel of the same name . 
 ```
 
 ## Creating classification model
+
+```
+dls_clas = DataBlock(
+    blocks=(TextBlock.from_folder(path, vocab=dls_lm.vocab),CategoryBlock),
+    get_y = parent_label,
+    get_items=partial(get_text_files, folders=['train', 'test']),
+    splitter=GrandparentSplitter(valid_name='test')
+).dataloaders(path, path=path, bs=128, seq_len=72)
+
+dls_clas.show_batch(max_n=3)
+```
+
 ## Question: Is stemming and lemmatisation still used in practice?
 ## Handling different sequence lengths
 ## Fine-tuning classifier
