@@ -271,7 +271,11 @@ Misinformation can be increased through deep learning models, ex. GPT2. SciPy ke
 
 Will cover how to create a complex architecture: recurring neural network.
 
-## Question: are there model interpretability tools for language models?
+## Question: Are there model interpretability tools for language models?
+
+There are tools. We won't cover them in this course. There are PyTorch libraries for this. Technical manuals, grammar
+textbooks, and such is not a bad idea to train your model.
+
 ## Preparing the dataset for RNN: tokenization and numericalization
 ## Defining a simple language model
 ## Question: can you speed up fine-tuning the NLP model?
