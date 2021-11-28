@@ -350,6 +350,28 @@ idx, vocab[idx.item()], counts[idx].item()/n
 ```
 
 ## Recurrent neural networks (RNN)
+
+```
+class LMModel2(Module):
+    def __init__(self, vocab_sz, n_hidden):
+        self.i_h = nn.Embedding(vocab_sz, n_hidden)  
+        self.h_h = nn.Linear(n_hidden, n_hidden)     
+        self.h_o = nn.Linear(n_hidden,vocab_sz)
+        
+    def forward(self, x):
+        h = 0
+        for i in range(3):
+            h = h + self.i_h(x[:,i])
+            h = F.relu(self.h_h(h))
+        return self.h_o(h)
+
+learn = Learner(dls, LMModel2(len(vocab), 64), loss_func=F.cross_entropy, 
+                metrics=accuracy)
+learn.fit_one_cycle(4, 1e-3)
+```
+
+~47% accuracy.
+
 ## Improving our RNN
 ## Back propagation through time
 ## Ordered sequences and callbacks
