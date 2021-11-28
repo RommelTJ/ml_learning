@@ -194,6 +194,10 @@ learn.save_encoder('finetuned')
 ```
 
 ## Question: Can language models learn meaning?
+
+Yes, machine learning means it learns these rules on its own. Language models in practice are good 
+at understanding nuances in language.
+
 ## Text generation with language model
 ## Creating classification model
 ## Question: Is stemming and lemmatisation still used in practice?
