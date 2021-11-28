@@ -121,6 +121,31 @@ nums = num(toks)[:20]; nums
 ```
 
 ## Creating batches for language model
+
+```
+stream = "In this chapter, we will go back over the example of classifying movie reviews we studied in chapter 1 and dig deeper under the surface. First we will look at the processing steps necessary to convert text into numbers and how to customize it. By doing this, we'll have another example of the PreProcessor used in the data block API.\nThen we will study how we build a language model and train it for a while."
+tokens = tkn(stream)
+bs,seq_len = 6,15
+d_tokens = np.array([tokens[i*seq_len:(i+1)*seq_len] for i in range(bs)])
+df = pd.DataFrame(d_tokens)
+display(HTML(df.to_html(index=False,header=None)))
+
+bs,seq_len = 6,5
+d_tokens = np.array([tokens[i*15:i*15+seq_len] for i in range(bs)])
+df = pd.DataFrame(d_tokens)
+display(HTML(df.to_html(index=False,header=None)))
+
+bs,seq_len = 6,5
+d_tokens = np.array([tokens[i*15+seq_len:i*15+2*seq_len] for i in range(bs)])
+df = pd.DataFrame(d_tokens)
+display(HTML(df.to_html(index=False,header=None)))
+
+bs,seq_len = 6,5
+d_tokens = np.array([tokens[i*15+10:i*15+15] for i in range(bs)])
+df = pd.DataFrame(d_tokens)
+display(HTML(df.to_html(index=False,header=None)))
+```
+
 ## LMDataLoader
 ## Creating language model data with DataBlock
 ## Fine-tuning a language model
