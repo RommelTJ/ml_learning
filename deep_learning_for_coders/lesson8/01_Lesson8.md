@@ -199,6 +199,21 @@ Yes, machine learning means it learns these rules on its own. Language models in
 at understanding nuances in language.
 
 ## Text generation with language model
+
+```
+TEXT = "I liked this movie because"
+N_WORDS = 40
+N_SENTENCES = 2
+preds = [learn.predict(TEXT, N_WORDS, temperature=0.75) 
+         for _ in range(N_SENTENCES)]
+print("\n".join(preds))
+```
+
+```
+i liked this movie because of its style and music , and Roman Catholic folklore and interest in books , and the film End of the Century ( 1995 ) . It now has a number of legal issues and
+i liked this movie because it was an adaptation of the novel of the same name . Though the film was not specifically designed to be a Holocaust , the author cited the film as a way to establish Christian Christian
+```
+
 ## Creating classification model
 ## Question: Is stemming and lemmatisation still used in practice?
 ## Handling different sequence lengths
