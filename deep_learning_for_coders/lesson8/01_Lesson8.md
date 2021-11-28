@@ -147,6 +147,18 @@ display(HTML(df.to_html(index=False,header=None)))
 ```
 
 ## LMDataLoader
+
+LMDataLoader is a utility to create batched for a language model. Makes it easy.
+
+```
+nums200 = toks200.map(num)
+dl = LMDataLoader(nums200)
+x,y = first(dl)
+x.shape,y.shape
+' '.join(num.vocab[o] for o in x[0][:20])
+' '.join(num.vocab[o] for o in y[0][:20])
+```
+
 ## Creating language model data with DataBlock
 ## Fine-tuning a language model
 ## Saving and loading models
