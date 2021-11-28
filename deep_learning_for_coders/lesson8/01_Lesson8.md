@@ -242,6 +242,20 @@ learn = learn.load_encoder('finetuned')
 ```
 
 ## Fine-tuning classifier
+
+```
+learn.fit_one_cycle(1, 2e-2)
+
+learn.freeze_to(-2)
+learn.fit_one_cycle(1, slice(1e-2/(2.6**4),1e-2))
+
+learn.freeze_to(-3)
+learn.fit_one_cycle(1, slice(5e-3/(2.6**4),5e-3))
+
+learn.unfreeze()
+learn.fit_one_cycle(2, slice(1e-3/(2.6**4),1e-3))
+```
+
 ## Questions
 ## Ethics and risks associated with text generation language models
 ## Language model from scratch
