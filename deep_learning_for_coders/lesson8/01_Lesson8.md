@@ -232,6 +232,15 @@ dls_clas.show_batch(max_n=3)
 No. It's an outdated approach. Word stems tell us something, so we don't remove them. Used to be used pre-deep learning.
 
 ## Handling different sequence lengths
+
+```
+nums_samp = toks200[:10].map(num)
+nums_samp.map(len)
+learn = text_classifier_learner(dls_clas, AWD_LSTM, drop_mult=0.5, 
+                                metrics=accuracy).to_fp16()
+learn = learn.load_encoder('finetuned')
+```
+
 ## Fine-tuning classifier
 ## Questions
 ## Ethics and risks associated with text generation language models
