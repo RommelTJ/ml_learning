@@ -277,6 +277,35 @@ There are tools. We won't cover them in this course. There are PyTorch libraries
 textbooks, and such is not a bad idea to train your model.
 
 ## Preparing the dataset for RNN: tokenization and numericalization
+
+Jeremy Howard made the "Human Numbers" data set for RNNs.
+
+```
+from fastai.text.all import *
+path = untar_data(URLs.HUMAN_NUMBERS)
+
+Path.BASE_PATH = path
+path.ls()
+
+lines = L()
+with open(path/'train.txt') as f: lines += L(*f.readlines())
+with open(path/'valid.txt') as f: lines += L(*f.readlines())
+lines
+
+text = ' . '.join([l.strip() for l in lines])
+text[:100]
+
+tokens = text.split(' ')
+tokens[:10]
+
+vocab = L(*tokens).unique()
+vocab
+
+word2idx = {w:i for i,w in enumerate(vocab)}
+nums = L(word2idx[i] for i in tokens)
+nums
+```
+
 ## Defining a simple language model
 ## Question: can you speed up fine-tuning the NLP model?
 ## Simple language model continued
