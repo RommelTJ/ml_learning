@@ -96,6 +96,10 @@ subword(10000)
 ```
 
 ## Question: how can we determine if pre-trained model is suitable for downstream task?
+
+If it's the same language, it's almost always sufficient to use Wikipedia. You don't need corpus specific trained 
+models.
+
 ## Numericalization
 ## Creating batches for language model
 ## LMDataLoader
