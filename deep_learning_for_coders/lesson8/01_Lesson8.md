@@ -59,6 +59,27 @@ Tokenization has three main approaches:
   * Could be a word, a subword, or a single character.
 
 ## Word tokenizer
+
+FastAI provides an interface to external tokenizers. Default word tokenizer is "spaCy".
+
+```
+from fastai.text.all import *
+path = untar_data(URLs.IMDB)
+files = get_text_files(path, folders = ['train', 'test', 'unsup'])
+txt = files[0].open().read(); txt[:75]
+
+spacy = WordTokenizer()
+toks = first(spacy([txt]))
+first(spacy(['The U.S. dollar $1 is $1.00.']))
+
+tkn = Tokenizer(spacy)
+print(coll_repr(tkn(txt), 31))
+
+defaults.text_proc_rules
+
+coll_repr(tkn('&copy;   Fast.ai www.fast.ai/INDEX'), 31)
+```
+
 ## Subword tokenizer
 ## Question: how can we determine if pre-trained model is suitable for downstream task?
 ## Numericalization
