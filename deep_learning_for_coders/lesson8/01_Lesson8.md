@@ -81,6 +81,20 @@ coll_repr(tkn('&copy;   Fast.ai www.fast.ai/INDEX'), 31)
 ```
 
 ## Subword tokenizer
+
+```
+txts = L(o.open().read() for o in files[:2000])
+
+def subword(sz):
+    sp = SubwordTokenizer(vocab_sz=sz)
+    sp.setup(txts)
+    return ' '.join(first(sp([txt]))[:40])
+
+subword(1000)
+subword(200)
+subword(10000)
+```
+
 ## Question: how can we determine if pre-trained model is suitable for downstream task?
 ## Numericalization
 ## Creating batches for language model
