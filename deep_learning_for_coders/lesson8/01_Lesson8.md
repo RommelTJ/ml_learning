@@ -264,6 +264,9 @@ To do data augmentation on text, you would Google and read papers
 ("Unsupervised Data Augmentation for Consistency Training"). Tricks like translating sentences into multiple languages.
 
 ## Ethics and risks associated with text generation language models
+
+Misinformation can be increased through deep learning models, ex. GPT2. SciPy keynote lecture.
+
 ## Language model from scratch
 ## Question: are there model interpretability tools for language models?
 ## Preparing the dataset for RNN: tokenization and numericalization
