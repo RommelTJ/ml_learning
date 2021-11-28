@@ -44,6 +44,20 @@ Terms:
   * New model that handles input lists which could be arbitrarily big or small. We will use recurrent neural networks.
 
 ## Tokenization
+
+Tokenization has three main approaches: 
+* Word-based
+  * Split a sentence on spaces, as well as applying language specific rules to try to separate parts of meaning
+* Subword based
+  * Split words into smaller parts, based on most commonly occurring substrings.
+  * Example: "occasion" -> "o", "c", "ca", "sion".
+* Character based
+  * Split a sentence into its individual characters
+
+* Token
+  * One element of a list created by the tokenization process.
+  * Could be a word, a subword, or a single character.
+
 ## Word tokenizer
 ## Subword tokenizer
 ## Question: how can we determine if pre-trained model is suitable for downstream task?
