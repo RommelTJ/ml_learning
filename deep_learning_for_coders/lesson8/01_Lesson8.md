@@ -173,6 +173,14 @@ dls_lm.show_batch(max_n=2)
 ```
 
 ## Fine-tuning a language model
+
+```
+learn = language_model_learner(
+    dls_lm, AWD_LSTM, drop_mult=0.3, 
+    metrics=[accuracy, Perplexity()]).to_fp16()
+learn.fit_one_cycle(1, 2e-2)
+```
+
 ## Saving and loading models
 ## Question: Can language models learn meaning?
 ## Text generation with language model
