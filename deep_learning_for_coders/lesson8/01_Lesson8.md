@@ -268,6 +268,9 @@ To do data augmentation on text, you would Google and read papers
 Misinformation can be increased through deep learning models, ex. GPT2. SciPy keynote lecture.
 
 ## Language model from scratch
+
+Will cover how to create a complex architecture: recurring neural network.
+
 ## Question: are there model interpretability tools for language models?
 ## Preparing the dataset for RNN: tokenization and numericalization
 ## Defining a simple language model
