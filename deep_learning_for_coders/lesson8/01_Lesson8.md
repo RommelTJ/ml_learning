@@ -316,7 +316,10 @@ cut = int(len(seqs) * 0.8)
 dls = DataLoaders.from_dsets(seqs[:cut], seqs[cut:], bs=64, shuffle=False)
 ```
 
-## Question: can you speed up fine-tuning the NLP model?
+## Question: Can you speed up fine-tuning the NLP model?
+
+10+ mins per epoch is tough. You don't normally need to fine-tune that often. Work is more at the classifier stage.
+
 ## Simple language model continued
 ## Recurrent neural networks (RNN)
 ## Improving our RNN
