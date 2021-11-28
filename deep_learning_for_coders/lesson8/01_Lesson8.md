@@ -257,6 +257,12 @@ learn.fit_one_cycle(2, slice(1e-3/(2.6**4),1e-3))
 ```
 
 ## Questions
+
+It's amazing that a model that can predict the next word of a sentence also classify language (95.1% accuracy).
+
+To do data augmentation on text, you would Google and read papers 
+("Unsupervised Data Augmentation for Consistency Training"). Tricks like translating sentences into multiple languages.
+
 ## Ethics and risks associated with text generation language models
 ## Language model from scratch
 ## Question: are there model interpretability tools for language models?
