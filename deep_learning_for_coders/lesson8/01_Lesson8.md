@@ -461,6 +461,30 @@ learn.fit_one_cycle(15, 3e-3)
 ```
 
 ## Multilayer RNN
+
+```
+class LMModel5(Module):
+    def __init__(self, vocab_sz, n_hidden, n_layers):
+        self.i_h = nn.Embedding(vocab_sz, n_hidden)
+        self.rnn = nn.RNN(n_hidden, n_hidden, n_layers, batch_first=True)
+        self.h_o = nn.Linear(n_hidden, vocab_sz)
+        self.h = torch.zeros(n_layers, bs, n_hidden)
+        
+    def forward(self, x):
+        res,h = self.rnn(self.i_h(x), self.h)
+        self.h = h.detach()
+        return self.h_o(res)
+    
+    def reset(self): self.h.zero_()
+
+learn = Learner(dls, LMModel5(len(vocab), 64, 2), 
+                loss_func=CrossEntropyLossFlat(), 
+                metrics=accuracy, cbs=ModelResetter)
+learn.fit_one_cycle(15, 3e-3)
+```
+
+~54% accuracy
+
 ## Exploding and vanishing gradients
 ## LSTM
 ## Questions
