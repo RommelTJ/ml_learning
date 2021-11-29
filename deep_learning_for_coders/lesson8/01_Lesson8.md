@@ -596,4 +596,13 @@ learn = Learner(dls, LMModel7(len(vocab), 64, 2, 0.5),
 ```
 
 ## TextLearner
+
+```
+learn = TextLearner(dls, LMModel7(len(vocab), 64, 2, 0.4),
+                    loss_func=CrossEntropyLossFlat(), metrics=accuracy)
+learn.fit_one_cycle(15, 1e-2, wd=0.1)
+```
+
+~83% accuracy
+
 ## Conclusion
