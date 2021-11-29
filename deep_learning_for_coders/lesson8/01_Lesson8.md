@@ -570,5 +570,30 @@ Activation Regularization and Temporal Activation Regularization are two other t
 We not just decrease the weights, but the total activations. 
 
 ## Weight tying
+
+```
+class LMModel7(Module):
+    def __init__(self, vocab_sz, n_hidden, n_layers, p):
+        self.i_h = nn.Embedding(vocab_sz, n_hidden)
+        self.rnn = nn.LSTM(n_hidden, n_hidden, n_layers, batch_first=True)
+        self.drop = nn.Dropout(p)
+        self.h_o = nn.Linear(n_hidden, vocab_sz)
+        self.h_o.weight = self.i_h.weight
+        self.h = [torch.zeros(n_layers, bs, n_hidden) for _ in range(2)]
+        
+    def forward(self, x):
+        raw,h = self.rnn(self.i_h(x), self.h)
+        out = self.drop(raw)
+        self.h = [h_.detach() for h_ in h]
+        return self.h_o(out),raw,out
+    
+    def reset(self): 
+        for h in self.h: h.zero_()
+        
+learn = Learner(dls, LMModel7(len(vocab), 64, 2, 0.5),
+                loss_func=CrossEntropyLossFlat(), metrics=accuracy,
+                cbs=[ModelResetter, RNNRegularizer(alpha=2, beta=1)])
+```
+
 ## TextLearner
 ## Conclusion
