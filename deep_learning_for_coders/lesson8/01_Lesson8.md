@@ -422,6 +422,44 @@ learn.fit_one_cycle(10, 3e-3)
 ```
 
 ## Creating more signal for model
+
+```
+sl = 16
+seqs = L((tensor(nums[i:i+sl]), tensor(nums[i+1:i+sl+1]))
+         for i in range(0,len(nums)-sl-1,sl))
+cut = int(len(seqs) * 0.8)
+dls = DataLoaders.from_dsets(group_chunks(seqs[:cut], bs),
+                             group_chunks(seqs[cut:], bs),
+                             bs=bs, drop_last=True, shuffle=False)
+
+[L(vocab[o] for o in s) for s in seqs[0]]
+
+class LMModel4(Module):
+    def __init__(self, vocab_sz, n_hidden):
+        self.i_h = nn.Embedding(vocab_sz, n_hidden)  
+        self.h_h = nn.Linear(n_hidden, n_hidden)     
+        self.h_o = nn.Linear(n_hidden,vocab_sz)
+        self.h = 0
+        
+    def forward(self, x):
+        outs = []
+        for i in range(sl):
+            self.h = self.h + self.i_h(x[:,i])
+            self.h = F.relu(self.h_h(self.h))
+            outs.append(self.h_o(self.h))
+        self.h = self.h.detach()
+        return torch.stack(outs, dim=1)
+    
+    def reset(self): self.h = 0
+
+def loss_func(inp, targ):
+    return F.cross_entropy(inp.view(-1, len(vocab)), targ.view(-1))
+
+learn = Learner(dls, LMModel4(len(vocab), 64), loss_func=loss_func,
+                metrics=accuracy, cbs=ModelResetter)
+learn.fit_one_cycle(15, 3e-3)
+```
+
 ## Multilayer RNN
 ## Exploding and vanishing gradients
 ## LSTM
