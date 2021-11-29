@@ -486,6 +486,11 @@ learn.fit_one_cycle(15, 3e-3)
 ~54% accuracy
 
 ## Exploding and vanishing gradients
+
+Exploding or disappearing activations happen when each time a matrix multiplication is being done. If you do it 
+enough times, you can end up with very large or very small results. Floating point numbers become less and less 
+accurate the further away the numbers get from zero. To avoid exploding or disappearing gradients we use LSTM.
+
 ## LSTM
 ## Questions
 ## Regularisation using Dropout
