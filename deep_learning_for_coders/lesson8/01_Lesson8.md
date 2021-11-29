@@ -542,6 +542,13 @@ t.chunk(2)
 ```
 
 ## Questions
+
+The identity matrix is the matrix where if you multiply by that same number, you get the original number. 
+One popular approach is to start with an identity matrix to avoid gradient explosions.
+
+You can quickly check if gradients are exploding/disappearing when you calculate them. FastAI has `ActivationStats`
+to view this information.
+
 ## Regularisation using Dropout
 ## AR and TAR regularisation
 ## Weight tying
