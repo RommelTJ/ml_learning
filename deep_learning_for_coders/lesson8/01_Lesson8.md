@@ -394,6 +394,10 @@ class LMModel3(Module):
 ```
 
 ## Back propagation through time
+
+Gradients need to be calculated through every layer. To aid in this calculation, we do `self.h.detach()` which
+throws away the gradient history. This is called truncated back propagation.
+
 ## Ordered sequences and callbacks
 ## Creating more signal for model
 ## Multilayer RNN
