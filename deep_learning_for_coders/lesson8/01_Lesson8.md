@@ -399,6 +399,28 @@ Gradients need to be calculated through every layer. To aid in this calculation,
 throws away the gradient history. This is called truncated back propagation.
 
 ## Ordered sequences and callbacks
+
+```
+m = len(seqs)//bs
+m,bs,len(seqs)
+
+def group_chunks(ds, bs):
+    m = len(ds) // bs
+    new_ds = L()
+    for i in range(m): new_ds += L(ds[i + m*j] for j in range(bs))
+    return new_ds
+    
+cut = int(len(seqs) * 0.8)
+dls = DataLoaders.from_dsets(
+    group_chunks(seqs[:cut], bs), 
+    group_chunks(seqs[cut:], bs), 
+    bs=bs, drop_last=True, shuffle=False)
+
+learn = Learner(dls, LMModel3(len(vocab), 64), loss_func=F.cross_entropy,
+                metrics=accuracy, cbs=ModelResetter)
+learn.fit_one_cycle(10, 3e-3)
+```
+
 ## Creating more signal for model
 ## Multilayer RNN
 ## Exploding and vanishing gradients
