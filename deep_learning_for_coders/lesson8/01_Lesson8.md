@@ -549,7 +549,20 @@ One popular approach is to start with an identity matrix to avoid gradient explo
 You can quickly check if gradients are exploding/disappearing when you calculate them. FastAI has `ActivationStats`
 to view this information.
 
-## Regularisation using Dropout
+## Regularization using Dropout
+
+Dropout is a regularization technique. The idea is to randomly change some activations to zero at training time. 
+This makes sure all neurons actively work towards the output of the Hinton paper.
+
+```
+class Dropout(Module):
+    def __init__(self, p): self.p = p
+    def forward(self, x):
+        if not self.training: return x
+        mask = x.new(*x.shape).bernoulli_(1-p)
+        return x * mask.div_(1-p)
+```
+
 ## AR and TAR regularisation
 ## Weight tying
 ## TextLearner
