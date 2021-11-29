@@ -492,6 +492,55 @@ enough times, you can end up with very large or very small results. Floating poi
 accurate the further away the numbers get from zero. To avoid exploding or disappearing gradients we use LSTM.
 
 ## LSTM
+
+LSTM (long short-term memory) is an architecture with two hidden states. The first hidden state is already used
+by the RNN to retain the output layer info to predict the next token. The second hidden state is used for keeping
+long short-term memory while the hidden state focuses on the next token.
+
+```
+class LSTMCell(Module):
+    def __init__(self, ni, nh):
+        self.forget_gate = nn.Linear(ni + nh, nh)
+        self.input_gate  = nn.Linear(ni + nh, nh)
+        self.cell_gate   = nn.Linear(ni + nh, nh)
+        self.output_gate = nn.Linear(ni + nh, nh)
+
+    def forward(self, input, state):
+        h,c = state
+        h = torch.cat([h, input], dim=1)
+        forget = torch.sigmoid(self.forget_gate(h))
+        c = c * forget
+        inp = torch.sigmoid(self.input_gate(h))
+        cell = torch.tanh(self.cell_gate(h))
+        c = c + inp * cell
+        out = torch.sigmoid(self.output_gate(h))
+        h = out * torch.tanh(c)
+        return h, (h,c)
+```
+
+```
+class LSTMCell(Module):
+    def __init__(self, ni, nh):
+        self.ih = nn.Linear(ni,4*nh)
+        self.hh = nn.Linear(nh,4*nh)
+
+    def forward(self, input, state):
+        h,c = state
+        # One big multiplication for all the gates is better than 4 smaller ones
+        gates = (self.ih(input) + self.hh(h)).chunk(4, 1)
+        ingate,forgetgate,outgate = map(torch.sigmoid, gates[:3])
+        cellgate = gates[3].tanh()
+
+        c = (forgetgate*c) + (ingate*cellgate)
+        h = outgate * c.tanh()
+        return h, (h,c)
+```
+
+```
+t = torch.arange(0,10)
+t.chunk(2)
+```
+
 ## Questions
 ## Regularisation using Dropout
 ## AR and TAR regularisation
