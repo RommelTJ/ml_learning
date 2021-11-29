@@ -373,6 +373,26 @@ learn.fit_one_cycle(4, 1e-3)
 ~47% accuracy.
 
 ## Improving our RNN
+
+```
+class LMModel3(Module):
+    def __init__(self, vocab_sz, n_hidden):
+        self.i_h = nn.Embedding(vocab_sz, n_hidden)  
+        self.h_h = nn.Linear(n_hidden, n_hidden)     
+        self.h_o = nn.Linear(n_hidden,vocab_sz)
+        self.h = 0
+        
+    def forward(self, x):
+        for i in range(3):
+            self.h = self.h + self.i_h(x[:,i])
+            self.h = F.relu(self.h_h(self.h))
+        out = self.h_o(self.h)
+        self.h = self.h.detach()
+        return out
+    
+    def reset(self): self.h = 0
+```
+
 ## Back propagation through time
 ## Ordered sequences and callbacks
 ## Creating more signal for model
