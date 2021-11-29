@@ -563,7 +563,12 @@ class Dropout(Module):
         return x * mask.div_(1-p)
 ```
 
-## AR and TAR regularisation
+## AR and TAR regularization
+
+Activation Regularization and Temporal Activation Regularization are two other techniques similar to weigh decay. 
+
+We not just decrease the weights, but the total activations. 
+
 ## Weight tying
 ## TextLearner
 ## Conclusion
