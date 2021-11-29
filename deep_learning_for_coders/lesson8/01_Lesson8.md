@@ -606,3 +606,5 @@ learn.fit_one_cycle(15, 1e-2, wd=0.1)
 ~83% accuracy
 
 ## Conclusion
+
+Go back to lesson 1, go deeper into assignments, pick a Kaggle competition, pick a book/paper, and more!
